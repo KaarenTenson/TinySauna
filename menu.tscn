@@ -71,7 +71,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,10 +89,11 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -54.0
-offset_bottom = 51.0
+offset_left = -136.0
+offset_bottom = 64.0
 grow_horizontal = 0
 icon = ExtResource("5_5pl05")
+flat = true
 expand_icon = true
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
