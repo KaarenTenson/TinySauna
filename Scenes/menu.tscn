@@ -184,10 +184,15 @@ text = "100%"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_opjs1")
+volume_db = -5.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5gtid")
+volume_db = -5.0
 autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]

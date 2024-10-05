@@ -26,6 +26,7 @@ func _on_strength_b_pressed() -> void:
 		Globals.Strength+=1
 		strength.value=strength.value+10
 	skillpoints.text="points:"+str(Globals.Skill_Points)
+	$AudioStreamPlayer.play()
 
 
 func _on_speed_b_pressed() -> void:
@@ -34,6 +35,7 @@ func _on_speed_b_pressed() -> void:
 		Globals.Speed+=1
 		speed.value=speed.value+10
 	skillpoints.text="points:"+str(Globals.Skill_Points)
+	$AudioStreamPlayer.play()
 
 
 func _on_potions_b_pressed() -> void:
@@ -42,3 +44,4 @@ func _on_potions_b_pressed() -> void:
 		Globals.Potions+=1
 		potions.value=potions.value+10
 	skillpoints.text="points:"+str(Globals.Skill_Points)
+	$AudioStreamPlayer.play()
