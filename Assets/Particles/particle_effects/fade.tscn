@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://4fqxhik8tlcu"]
+
+[ext_resource type="Texture2D" uid="uid://bp0syy85osyiv" path="res://Assets/Particles/spotlight_5.png" id="1_yt0k6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dhem0"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_3stub"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_q68rt"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.748603, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_eo2kr"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.74581, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="fade" type="Node2D"]
+
+[node name="blue_fade" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dhem0")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+texture = ExtResource("1_yt0k6")
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_3stub")
+split_scale = true
+scale_curve_x = SubResource("Curve_q68rt")
+scale_curve_y = SubResource("Curve_eo2kr")
+color = Color(0.186759, 0.360035, 1, 1)
+
+[node name="green_fade" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dhem0")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+texture = ExtResource("1_yt0k6")
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_3stub")
+split_scale = true
+scale_curve_x = SubResource("Curve_q68rt")
+scale_curve_y = SubResource("Curve_eo2kr")
+color = Color(0.308476, 0.746819, 7.70092e-07, 1)
+
+[node name="pink_fade" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dhem0")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+texture = ExtResource("1_yt0k6")
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_3stub")
+split_scale = true
+scale_curve_x = SubResource("Curve_q68rt")
+scale_curve_y = SubResource("Curve_eo2kr")
+color = Color(1, 0.307952, 0.791901, 1)
+
+[node name="red_fade" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dhem0")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+texture = ExtResource("1_yt0k6")
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_3stub")
+split_scale = true
+scale_curve_x = SubResource("Curve_q68rt")
+scale_curve_y = SubResource("Curve_eo2kr")
+color = Color(0.780392, 0, 0, 1)
