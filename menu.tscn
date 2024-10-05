@@ -60,3 +60,4 @@ text = "Exit
 "
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Container/exit" to="." method="_on_exit_pressed"]
