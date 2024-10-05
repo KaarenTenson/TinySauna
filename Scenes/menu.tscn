@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://br1ii77u6qe7k"]
+[gd_scene load_steps=16 format=3 uid="uid://br1ii77u6qe7k"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
 [ext_resource type="Texture2D" uid="uid://comlcfpt6csok" path="res://Assets/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="2_i7d0w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
 [ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="9_nl3ih"]
 [ext_resource type="AudioStream" uid="uid://m4wtxfs4ohh" path="res://Music/Title.mp3" id="10_0rqqi"]
+[ext_resource type="AudioStream" uid="uid://cvxejqs1h8rge" path="res://SFX/menuAccept.mp3" id="10_834wj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
 
@@ -180,6 +181,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "100%"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_834wj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_0rqqi")
