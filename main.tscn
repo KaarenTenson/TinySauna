@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=14 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://c25coep0xjbi6" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://egfa2cqe2iwy" path="res://Assets/health_meter_under.png" id="6_ghnpt"]
 [ext_resource type="Texture2D" uid="uid://bph12ddeshqxl" path="res://Assets/health_meter_progress.png" id="7_3ponr"]
 [ext_resource type="Texture2D" uid="uid://c5wuudxkw2ptm" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
+[ext_resource type="AudioStream" uid="uid://daij085h0pd7l" path="res://SFX/awesome_combo3.mp3" id="9_a8yvw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
 blend_mode = 1
@@ -181,5 +182,8 @@ nine_patch_stretch = true
 texture_under = ExtResource("6_ghnpt")
 texture_over = ExtResource("7_lpv3m")
 texture_progress = ExtResource("7_3ponr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_a8yvw")
 
 [connection signal="pressed" from="Panel/Button" to="Panel" method="_on_button_pressed"]

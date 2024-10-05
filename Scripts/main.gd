@@ -62,7 +62,6 @@ func _input(event):
 					visible_keys.erase(node)
 				elif(node.get_node("Label").text==key_name):
 					#klahv on olemas, suurendab skoori ja selle multiplierit
-					
 					Globals.Add_Score()
 					Globals.Inc_Multiplier()
 					#havitab vajutatud klahvi masiivist 
@@ -70,7 +69,10 @@ func _input(event):
 					var tempobj=(teepopup(mangiv.pop_back()))
 					visible_keys.append(tempobj)
 					timer_tee=tee_vahe
+					$AudioStreamPlayer.play()
 					break
+				#vale klahv on vajutatud
+				Globals.Recive_Damage()
 			
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
