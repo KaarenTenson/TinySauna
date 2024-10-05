@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c72a284mgvnst"
+path="res://.godot/imported/Tutorial (loopable).mp3-e022b7a9857b808c6bfcb7616e4bcff2.mp3str"
+
+[deps]
+
+source_file="res://Music/Tutorial (loopable).mp3"
+dest_files=["res://.godot/imported/Tutorial (loopable).mp3-e022b7a9857b808c6bfcb7616e4bcff2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgxbil2wfvbid"
+path="res://.godot/imported/Warm room.mp3-fb581f7708a425599f6e189b10018072.mp3str"
+
+[deps]
+
+source_file="res://SFX/Warm room.mp3"
+dest_files=["res://.godot/imported/Warm room.mp3-fb581f7708a425599f6e189b10018072.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

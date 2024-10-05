@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dphl1ftpvbpct"
+path="res://.godot/imported/Warm room (loopable).mp3-50a0292df6e47b016d1f0e470e8d58bf.mp3str"
+
+[deps]
+
+source_file="res://Music/Warm room (loopable).mp3"
+dest_files=["res://.godot/imported/Warm room (loopable).mp3-50a0292df6e47b016d1f0e470e8d58bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

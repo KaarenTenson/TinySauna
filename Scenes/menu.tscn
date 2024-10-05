@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="7_i6cuf"]
 [ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
 [ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="9_nl3ih"]
-[ext_resource type="AudioStream" uid="uid://cysapt31pwjiw" path="res://Music/Title.mp3" id="10_0rqqi"]
+[ext_resource type="AudioStream" uid="uid://m4wtxfs4ohh" path="res://Music/Title.mp3" id="10_0rqqi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
 

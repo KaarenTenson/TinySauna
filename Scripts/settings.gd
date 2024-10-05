@@ -9,7 +9,8 @@ extends Panel
 func _ready() -> void:
 	
 	h_slider.value=50;
-	audio_stream_player.volume_db=linear_to_db(h_slider.value)
+	audio_stream_player.volume_db=linear_to_db(h_slider.value/100)
+	print(linear_to_db(h_slider.value/100))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,5 +19,5 @@ func _process(delta: float) -> void:
 
 
 func _on_h_slider_value_changed(value: float) -> void:
-	audio_stream_player.volume_db=linear_to_db(value)
+	audio_stream_player.volume_db=linear_to_db(value/100)
 	vtext.text=str(int(value))+"%";

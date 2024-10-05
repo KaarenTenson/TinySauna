@@ -6,6 +6,12 @@ var mangiv =[]
 var texture = preload("res://Assets/Buttons/C Buttons Small1.png")
 #popup stseen
 var target_key=preload("res://Scenes/Keys.tscn")
+
+var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
+var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
+
+var fades_factory
+var explosions_factory
 @onready var score: Label = $Score
 @onready var multi_plier: Label = $MultiPlier
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
@@ -17,7 +23,7 @@ var visible_keys=[]
 #mitme sekundi tagant havitatkse popup
 var havita_vahe=3
 #mitme sekundi tagant tehakse 
-var tee_vahe=0.5
+var tee_vahe=2
 #jalgib, kas saab teha popupe või hävitada neid
 var timer_havita=0
 var timer_tee=0
@@ -32,6 +38,8 @@ func _ready() -> void:
 	set_process_input(true)
 	#kloonides saab popupe teha
 	target_key_factory=target_key.instantiate()
+	fades_factory=fades.instantiate()
+	explosions_factory=explosions.instantiate()
 	#taidab suvaliste charidega
 	taida(1000)
 	
@@ -89,7 +97,28 @@ func teepopup(taht) -> TextureRect:
 	uus.get_node("Label").text = taht
 	# Set the new random position to the cloned node
 	uus.position = Vector2(random_x, random_y)
+	uus.Removed.connect(Effect)
 	
 	# Add the new node to the scene as a child of the parent
 	vanem.add_child(uus)
 	return uus
+func Effect(Tposition):
+	
+	var explosion_temp: Node2D=explosions_factory.duplicate()
+	var fade_temp: Node2D=fades_factory.duplicate()
+	add_child(fade_temp)
+	add_child(explosion_temp)
+	fade_temp.set_position(Tposition)
+	explosion_temp.set_position(Tposition)
+	var emitter=fade_temp.get_children()[randi() % 4]
+	var emitter2=explosion_temp.get_children()[randi() % 4]
+	emitter.scale *= 60  # Scale the whole particle system
+	emitter.amount *= 60  # Increase the number of particles
+	#emitter.emitting=true
+	emitter2.scale *= 10  # Scale the whole particle system
+	emitter2.scale_amount_min=0.5
+	emitter2.scale_amount_max=1
+	emitter2.amount *= 2  # Increase the number of particles
+	emitter2.emission_sphere_radius*=0.5
+	emitter2.emitting=true
+	
