@@ -27,7 +27,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Animation" id="Animation_blqmx"]
-length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,10 +35,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(8, -3)]
+"values": [Vector2(8, -3), Vector2(0, -3), Vector2(8, -3), Vector2(16, -3)]
 }
 
 [sub_resource type="Animation" id="Animation_q7eq2"]
@@ -124,15 +124,18 @@ scale_amount_max = 40.0
 [node name="Crowd" type="TextureRect" parent="."]
 texture_filter = 3
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -3.0
-offset_right = 8.0
-offset_bottom = -3.0
+anchors_preset = -1
+anchor_left = 0.468
+anchor_top = 0.333
+anchor_right = 0.473
+anchor_bottom = 0.345
+offset_left = -531.136
+offset_top = -218.784
+offset_right = 615.104
+offset_bottom = 421.44
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.00698132
 texture = ExtResource("3_i0gv5")
 expand_mode = 1
 
@@ -140,7 +143,7 @@ expand_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_rmoji")
 }
-speed_scale = 3.0
+speed_scale = 2.0
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
