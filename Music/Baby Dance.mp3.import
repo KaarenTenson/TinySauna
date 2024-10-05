@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxgmfvtkhsj2p"
+path="res://.godot/imported/Baby Dance.mp3-881e18820e48384b9e581dfb09e9c604.mp3str"
+
+[deps]
+
+source_file="res://Music/Baby Dance.mp3"
+dest_files=["res://.godot/imported/Baby Dance.mp3-881e18820e48384b9e581dfb09e9c604.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
