@@ -1,29 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://br1ii77u6qe7k"]
+[gd_scene load_steps=12 format=3 uid="uid://br1ii77u6qe7k"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_5ikjt"]
 [ext_resource type="Texture2D" uid="uid://comlcfpt6csok" path="res://Assets/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="1_ignth"]
 [ext_resource type="Texture2D" uid="uid://cfmskxldklcse" path="res://Assets/Buttons/Settings/Settings3.png" id="3_1lws6"]
 [ext_resource type="Texture2D" uid="uid://8jk6pqa0vexq" path="res://Assets/Buttons/Play/Play1.png" id="3_jn3vn"]
 [ext_resource type="Texture2D" uid="uid://d1eilquk21mr5" path="res://Assets/Buttons/Quit/Quit3.png" id="4_4onsu"]
-[ext_resource type="Texture2D" uid="uid://g0ssgs53hr8h" path="res://Assets/Buttons/A Buttons Big3.png" id="6_0urea"]
+[ext_resource type="Texture2D" uid="uid://bd2ooxg8hg4rx" path="res://Assets/Buttons/A Buttons Medium3.png" id="6_cu238"]
 [ext_resource type="Script" path="res://settings.gd" id="6_uunwq"]
 [ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="7_eg0oc"]
 [ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="8_x4eqb"]
-[ext_resource type="AudioStream" uid="uid://cysapt31pwjiw" path="res://Music/Title.mp3" id="10_pw75p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
-
-[sub_resource type="Theme" id="Theme_j02bv"]
-Button/styles/focus = SubResource("StyleBoxEmpty_j5i3h")
 
 [sub_resource type="Theme" id="Theme_jgyst"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytuni"]
-texture = ExtResource("6_0urea")
-texture_margin_left = 14.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 14.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fge8o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,7 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_j02bv")
 script = ExtResource("1_5ikjt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -106,14 +94,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -374.0
-offset_top = -196.0
-offset_right = 360.0
-offset_bottom = 225.0
+offset_top = -157.0
+offset_right = 344.0
+offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jgyst")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ytuni")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fge8o")
 script = ExtResource("6_uunwq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_cu238")
 
 [node name="Button" type="Button" parent="Panel"]
 texture_filter = 1
@@ -121,8 +123,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -136.0
-offset_bottom = 64.0
+offset_left = -206.0
+offset_top = 49.0
+offset_right = -70.0
+offset_bottom = 113.0
 grow_horizontal = 0
 icon = ExtResource("7_eg0oc")
 flat = true
@@ -135,13 +139,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -7.5
-offset_right = 303.0
-offset_bottom = 33.5
+offset_left = -230.0
+offset_top = -19.5
+offset_right = 254.0
+offset_bottom = 20.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Control"]
 texture_filter = 1
@@ -179,10 +182,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "100%"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_pw75p")
-autoplay = true
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
