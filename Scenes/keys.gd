@@ -1,5 +1,6 @@
 extends TextureRect
 var timer=1
+@onready var anim = $key_press
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,5 +13,10 @@ func _process(delta: float) -> void:
 		queue_free()
 	else:
 		timer-=delta
+
 func Destroy_Self():
+	anim.animation_finished.connect(havita)
+	anim.play("key_press")
+
+func havita(a):
 	queue_free()
