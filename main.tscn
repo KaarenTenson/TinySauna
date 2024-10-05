@@ -3,6 +3,14 @@
 [ext_resource type="Script" path="res://main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://c25coep0xjbi6" path="res://Assets/background/mountain.png" id="2_w3qif"]
 [ext_resource type="Texture2D" uid="uid://ccfrcl3kt0vrp" path="res://Assets/background/crowd_bg.png" id="3_i0gv5"]
+[ext_resource type="Texture2D" uid="uid://et3qau4xlmgc" path="res://Assets/Particles/effect_4.png" id="4_dqrgu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Animation" id="Animation_blqmx"]
 length = 0.001
@@ -53,15 +61,6 @@ _data = {
 "crowd_haiphaip": SubResource("Animation_q7eq2")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
-blend_mode = 1
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0bho"]
-
 [node name="main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -73,37 +72,47 @@ script = ExtResource("1_7aqi6")
 
 [node name="Mountain" type="TextureRect" parent="."]
 texture_filter = 3
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 647.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_w3qif")
+expand_mode = 1
+
+[node name="combo_effect" type="CPUParticles2D" parent="Mountain"]
+modulate = Color(0.525856, 0.0891788, 0.4121, 1)
+material = SubResource("CanvasItemMaterial_7cf33")
+position = Vector2(576, 289)
+amount = 10
+texture = ExtResource("4_dqrgu")
+gravity = Vector2(0, 0)
+angular_velocity_min = 200.0
+angular_velocity_max = 200.0
+scale_amount_min = 30.0
+scale_amount_max = 40.0
 
 [node name="Crowd" type="TextureRect" parent="."]
 texture_filter = 3
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = -3.0
-offset_right = 1160.0
-offset_bottom = 645.0
+offset_right = 8.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_i0gv5")
+expand_mode = 1
 
 [node name="crowd_hype" type="AnimationPlayer" parent="Crowd"]
 libraries = {
 "": SubResource("AnimationLibrary_rmoji")
 }
 speed_scale = 3.0
-
-[node name="combo_effect" type="CPUParticles2D" parent="."]
-modulate = Color(0.525856, 0.0891788, 0.4121, 1)
-material = SubResource("CanvasItemMaterial_7cf33")
-position = Vector2(576, 289)
-amount = 10
-texture = SubResource("CompressedTexture2D_h0bho")
-gravity = Vector2(0, 0)
-angular_velocity_min = 200.0
-angular_velocity_max = 200.0
-scale_amount_min = 9.0
-scale_amount_max = 9.0
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
