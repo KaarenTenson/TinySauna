@@ -1,17 +1,22 @@
 extends Node
-var Strength=4
+var Strength=1
 var Speed=1
-var Potions=3
+var Potions=1
 var Skill_Points=5
 var ChosenBeebi
 var Score=0
 var Score_Multiplier=1
+var Enemy_Hp=100
 signal On_Hp0
+signal On_HpChanged
+
 var hp=100:
 	set(value):
 		if(value<=0):
+			On_HpChanged.emit(value)
 			On_Hp0.emit()
 		else:
+			On_HpChanged.emit(value)
 			hp=value
 		
 

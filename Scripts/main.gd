@@ -8,6 +8,7 @@ var texture = preload("res://Assets/Buttons/C Buttons Small1.png")
 var target_key=preload("res://Scenes/Keys.tscn")
 @onready var score: Label = $Score
 @onready var multi_plier: Label = $MultiPlier
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 #ehitatud popupstseen
 var target_key_factory
@@ -27,6 +28,7 @@ func kaotus():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.On_Hp0.connect(kaotus)
+	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
 	set_process_input(true)
 	#kloonides saab popupe teha
 	target_key_factory=target_key.instantiate()
