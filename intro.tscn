@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://6xrtjph4t7dr"]
 
+[ext_resource type="Texture2D" uid="uid://citc7qyyrxtjj" path="res://Assets/background/intro_taust.png" id="1_1ws8t"]
 [ext_resource type="Texture2D" uid="uid://c54lc2aa2blfn" path="res://Assets/Beebid/es.png" id="1_6xsnk"]
-[ext_resource type="Texture2D" uid="uid://c25coep0xjbi6" path="res://Assets/background/mountain.png" id="1_d38nc"]
 [ext_resource type="Texture2D" uid="uid://cwgxcl0cwimv7" path="res://Assets/Beebid/ko.png" id="2_mdoet"]
 [ext_resource type="Texture2D" uid="uid://2y72kw5fmaqb" path="res://Assets/Beebid/ne.png" id="3_nn1ue"]
 [ext_resource type="Texture2D" uid="uid://dbtbp6d1vo7ls" path="res://Assets/Beebid/te.png" id="4_b5ou5"]
@@ -401,7 +401,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_d38nc")
+texture = ExtResource("1_1ws8t")
 expand_mode = 1
 
 [node name="Beebi1" type="TextureRect" parent="."]
