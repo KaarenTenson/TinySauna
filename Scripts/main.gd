@@ -69,7 +69,7 @@ func _input(event):
 					var tempobj=(teepopup(mangiv.pop_back()))
 					visible_keys.append(tempobj)
 					timer_tee=tee_vahe
-					$AudioStreamPlayer.play()
+					$AudioStreamPlayer2D.play()
 					break
 				#vale klahv on vajutatud
 				Globals.Recive_Damage()
