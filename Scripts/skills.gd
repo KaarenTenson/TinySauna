@@ -9,6 +9,7 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AudioStreamPlayer.play()
 	skillpoints.text="points:"+str(Globals.Skill_Points)
 	speed.value=Globals.Speed*10
 	potions.value=Globals.Potions*10
