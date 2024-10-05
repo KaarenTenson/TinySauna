@@ -109,3 +109,10 @@ scale_amount_max = 9.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="MultiPlier" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
