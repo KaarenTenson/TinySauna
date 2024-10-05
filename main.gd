@@ -1,6 +1,6 @@
 extends Control
 
-var tahed=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","Y","X","1","2","3",
+var tahed = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","Y","X","1","2","3",
 "4","5","6","7","8","9","0"]
 var mangiv =[]
 var texture = preload("res://Assets/Buttons/C Buttons Small1.png")
@@ -39,7 +39,8 @@ func _input(event):
 				if !is_instance_valid(node):
 					visible_keys.erase(node)
 				elif(node.get_node("Label").text==key_name):
-					#klahv on olemas, suurendab skoori ja selle multiplierit 
+					#klahv on olemas, suurendab skoori ja selle multiplierit
+					
 					Globals.Add_Score()
 					Globals.Inc_Multiplier()
 					#havitab vajutatud klahvi masiivist 
@@ -59,25 +60,26 @@ func _process(delta: float) -> void:
 		timer_tee-=delta
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
+
 # teeb masiivi, kus suavlisi tähti ja numbreid võtta
 func taida(suurus) -> Array:
 	for i in range(suurus):
 		mangiv.append(tahed.pick_random())
 	return mangiv
+
 #teeb popup haitab ennast enda skriptis kui piisavalt aega on möödas
 func teepopup(taht) -> TextureRect:
 	var uus=target_key_factory.duplicate()
 	var vanem=self
 	var random_x = randf_range((vanem.position.x+vanem.size.x*0.2), (vanem.position.x + vanem.size.x)*0.8)  # Adjust range as needed
 	var random_y = randf_range((vanem.position.y+vanem.size.y*0.2), (vanem.position.y + vanem.size.y)*0.8)  # Adjust range as needed
-	var suurus=size.x*0.06
+	var suurus = size.x * 0.06
 	uus.size=Vector2(suurus,suurus)
 	uus.timer=havita_vahe
-	uus.get_node("Label").text=taht
+	uus.get_node("Label").text = taht
 	# Set the new random position to the cloned node
 	uus.position = Vector2(random_x, random_y)
 	
 	# Add the new node to the scene as a child of the parent
 	vanem.add_child(uus)
 	return uus
-	
