@@ -1,134 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://6xrtjph4t7dr"]
 
 [ext_resource type="Texture2D" uid="uid://c54lc2aa2blfn" path="res://Assets/Beebid/es.png" id="1_6xsnk"]
+[ext_resource type="Texture2D" uid="uid://c25coep0xjbi6" path="res://Assets/background/mountain.png" id="1_d38nc"]
 [ext_resource type="Texture2D" uid="uid://cwgxcl0cwimv7" path="res://Assets/Beebid/ko.png" id="2_mdoet"]
 [ext_resource type="Texture2D" uid="uid://2y72kw5fmaqb" path="res://Assets/Beebid/ne.png" id="3_nn1ue"]
 [ext_resource type="Texture2D" uid="uid://dbtbp6d1vo7ls" path="res://Assets/Beebid/te.png" id="4_b5ou5"]
 [ext_resource type="Texture2D" uid="uid://dq313kinlgno2" path="res://Assets/volur.png" id="5_85lo6"]
-
-[sub_resource type="Animation" id="Animation_g485h"]
-resource_name = "new_animation"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Beebi1:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(300, 300), Vector2(150, 150)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Beebi1:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-40, 232), Vector2(150, 400)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Beebi4:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(300, 300), Vector2(150, 150)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Beebi2:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(300, 300), Vector2(150, 150)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Beebi3:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(300, 300), Vector2(150, 150)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Beebi4:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(816, 240), Vector2(912, 400)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Beebi2:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(184, 152), Vector2(272, 256)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Beebi3:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(600, 160), Vector2(744, 256)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("volur:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1176, 208), Vector2(496, 192)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Label:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1176, 80), Vector2(-6592, 80)]
-}
 
 [sub_resource type="Animation" id="Animation_0wye5"]
 length = 0.001
@@ -243,7 +120,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Label:position")
+tracks/9/path = NodePath("tekst1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -252,6 +129,226 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(1168, 96)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("tekst1:visibility_layer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tekst2:visibility_layer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("tekst2:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1261, 431)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("tekst3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1178, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_g485h"]
+resource_name = "new_animation"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Beebi1:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(150, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Beebi1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40, 232), Vector2(150, 400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Beebi4:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(150, 150)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Beebi2:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(150, 150)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Beebi3:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(150, 150)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Beebi4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(816, 240), Vector2(912, 400)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Beebi2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(184, 152), Vector2(272, 256)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Beebi3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.86667, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(600, 160), Vector2(744, 256)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("volur:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.86667, 2.66667, 4.03333, 5.36667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1176, 208), Vector2(496, 192), Vector2(496, 192), Vector2(-200, 192)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("tekst1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1181, 50), Vector2(71, 50)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("tekst1:visibility_layer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("tekst2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.63333, 3.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1178, 50), Vector2(76, 50)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("tekst2:visibility_layer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("tekst3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(3.96667, 4.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1178, 50), Vector2(44, 37)]
+}
 
 [sub_resource type="Animation" id="Animation_ir17k"]
 resource_name = "new_animation_2"
@@ -259,7 +356,7 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
+tracks/0/path = NodePath("tekst1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -276,24 +373,26 @@ _data = {
 "new_animation_2": SubResource("Animation_ir17k")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vilj5"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_f8np6"]
-font_size = 40
-font_color = Color(0, 0, 0, 0.984314)
+font_size = 35
+font_color = Color(0.592962, 0.236959, 0.580291, 0.984314)
 
 [node name="Control" type="Control"]
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_x4gfa")
 }
+autoplay = "new_animation"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -302,65 +401,113 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_vilj5")
+texture = ExtResource("1_d38nc")
 expand_mode = 1
 
 [node name="Beebi1" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 1.0
-offset_top = 209.0
-offset_right = 387.0
-offset_bottom = 608.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.5
+anchor_right = 0.078
+anchor_bottom = 0.5
+offset_left = -79.64
+offset_top = -115.0
+offset_right = 297.144
+offset_bottom = 284.0
 texture = ExtResource("1_6xsnk")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Beebi2" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 232.0
-offset_top = 272.0
-offset_right = 624.0
-offset_bottom = 694.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29
+anchor_top = 0.5
+anchor_right = 0.29
+anchor_bottom = 0.5
+offset_left = -102.08
+offset_top = -52.0
+offset_right = 289.92
+offset_bottom = 370.0
 texture = ExtResource("2_mdoet")
 stretch_mode = 4
 
 [node name="Beebi3" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 600.0
-offset_top = 160.0
-offset_right = 986.0
-offset_bottom = 559.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.651
+anchor_top = 0.478
+anchor_right = 0.651
+anchor_bottom = 0.478
+offset_left = -149.952
+offset_top = -149.744
+offset_right = 236.048
+offset_bottom = 249.256
 texture = ExtResource("3_nn1ue")
 stretch_mode = 4
 
 [node name="volur" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 1176.0
-offset_top = 208.0
-offset_right = 1380.0
-offset_bottom = 586.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.977
+anchor_top = 0.536
+anchor_right = 0.977
+anchor_bottom = 0.536
+offset_left = 50.496
+offset_top = -139.328
+offset_right = 254.496
+offset_bottom = 238.672
 texture = ExtResource("5_85lo6")
 stretch_mode = 4
 
 [node name="Beebi4" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 827.0
-offset_top = 241.0
-offset_right = 1233.0
-offset_bottom = 619.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.839
+anchor_top = 0.602
+anchor_right = 0.839
+anchor_bottom = 0.602
+offset_left = -139.528
+offset_top = -149.096
+offset_right = 266.472
+offset_bottom = 228.904
 texture = ExtResource("4_b5ou5")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="."]
+[node name="tekst1" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1168.0
 offset_top = 96.0
-offset_right = 7745.0
-offset_bottom = 160.0
-text = "Four martial arts masters - the most powerful warriors of our modern age.  The mad wizard Jarkko felt threatened, and turned the four masters into small, pitiful babies. Being discontent with their young selves, the four masters of kung fu, karate, taekwondo and jiu-jitsu set out to face the wizard, in hopes of returning to their former selves."
+offset_right = 2112.0
+offset_bottom = 197.0
+text = "Four martial arts masters
+the most powerful warriors of our modern age. "
+label_settings = SubResource("LabelSettings_f8np6")
+
+[node name="tekst2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1261.0
+offset_top = 431.0
+offset_right = 4210.0
+offset_bottom = 532.0
+text = "The mad wizard Jarkko felt threatened
+and turned the four masters into small, pitiful babies."
+label_settings = SubResource("LabelSettings_f8np6")
+
+[node name="tekst3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1178.0
+offset_top = 50.0
+offset_right = 2063.0
+offset_bottom = 255.0
+text = "Being discontent with their young selves,
+the four masters of kung fu, karate,
+taekwondo and jiu-jitsu set out to face the wizard,
+in hopes of returning to their former selves."
 label_settings = SubResource("LabelSettings_f8np6")
