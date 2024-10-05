@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://deftq1vns5fwb"]
+
+[ext_resource type="Script" path="res://Scenes/keys_container.gd" id="1_h828f"]
+
+[sub_resource type="GDScript" id="GDScript_pue2k"]
+script/source = "extends Control
+
+# Sõnastik klaviatuuri klahvide ja nende distantside jaoks. Parem salvestada eraldi faili.
+const KEYBOARD_LAYOUT = {
+	'1': Vector2(0,0), '2': Vector2(1,0), '3': Vector2(2,0), '4': Vector2(3,0), '5': Vector2(4,0), '6': Vector2(5,0), '7': Vector2(6,0), '8': Vector2(7,0), '9': Vector2(8,0), '0': Vector2(9,0),
+	'Q': Vector2(0,1), 'W': Vector2(1,1), 'E': Vector2(2,1), 'R': Vector2(3,1), 'T': Vector2(4,1), 'Y': Vector2(5,1), 'U': Vector2(6,1), 'I': Vector2(7,1), 'O': Vector2(8,1), 'P': Vector2(9,1),
+	'A': Vector2(0,2), 'S': Vector2(1,2), 'D': Vector2(2,2), 'F': Vector2(3,2), 'G': Vector2(4,2), 'H': Vector2(5,2), 'J': Vector2(6,2), 'K': Vector2(7,2), 'L': Vector2(8,2),
+	'Z': Vector2(0,3), 'X': Vector2(1,3), 'C': Vector2(2,3), 'V': Vector2(3,3), 'B': Vector2(4,3), 'N': Vector2(5,3), 'M': Vector2(6,3), 'Comma': Vector2(7,3), 'Period': Vector2(8,3)
+}
+
+# Raskustasemed, number = distants klahvide vahel
+@export var easy_key_distance: int = 2
+@export var medium_key_distance: int = 4
+@export var hard_key_distance: int = 6
+
+var current_keys = []
+var difficulty: int = easy_key_distance  # Algne raskustase
+
+@export var label: Label
+@export var keys_container: HBoxContainer
+
+func _ready() -> void:
+	label.text = \"Press and hold 4 keys!\"
+	generate_random_keys()
+
+# distance_to võib tunduda lihtsam, aga see kasutab eukleidese teoreemi, ehk see on ebastabiilsem ja tõenäoliselt aeglasem. Kasutasin manhattan distance-i
+func key_distance(key1: String, key2: String) -> float:
+	var pos1 = KEYBOARD_LAYOUT[key1]
+	var pos2 = KEYBOARD_LAYOUT[key2]
+	return abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y)
+
+# Genereerib klahve.
+# current_keys on klahvid mida mängija peab vajutama
+# keys_container on UI klahvide konteiner
+func generate_random_keys() -> void:
+	current_keys.clear()
+	keys_container.clear()
+
+	var available_keys = KEYBOARD_LAYOUT.keys().duplicate()
+
+	for i in range(4):
+		var new_key = available_keys.pick_random()
+		current_keys.append(new_key)
+		available_keys.erase(new_key)
+
+		var sprite = create_key_sprite(new_key)
+		keys_container.add_child(sprite)
+
+	update_label()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		check_keys_held()
+
+# #Kontrollib kas kõik klahvid on alla hitud
+func check_keys_held() -> void:
+	for key in current_keys:
+		if not Input.is_physical_key_pressed(OS.find_keycode_from_string(key)):
+			update_label()
+			return
+
+	label.text = \"Correct! Hold the next set of keys:\"
+	generate_random_keys()
+
+# Loob tekstuuri vastava klahvi jaoks
+func create_key_sprite(key: String) -> TextureRect:
+	var key_texture = TextureRect.new()
+	key_texture.texture = load(\"res://Assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_\" + key.to_lower() + \".png\")
+	return key_texture
+
+# Näitab labelina mis klahve vajutada (võib teha accessibility optioniks)
+func update_label() -> void:
+	label.text = \"Hold down: \" + \", \".join(current_keys)
+"
+
+[node name="Keyboard" type="Control" node_paths=PackedStringArray("label", "keys_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_pue2k")
+label = NodePath("Label")
+keys_container = NodePath("KeysContainer")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 202.0
+offset_right = 727.0
+offset_bottom = 225.0
+
+[node name="KeysContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 213.0
+offset_right = 123.0
+offset_bottom = 253.0
+script = ExtResource("1_h828f")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
