@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://qf78i5ao05tu"]
+
+[ext_resource type="Texture2D" uid="uid://bp0syy85osyiv" path="res://Assets/Particles/spotlight_5.png" id="1_xe7pg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dmcpg"]
+blend_mode = 1
+
+[node name="explosion" type="Node2D"]
+
+[node name="purple_explosion" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dmcpg")
+position = Vector2(0.5, 0.5)
+emitting = false
+amount = 100
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.2
+explosiveness = 1.0
+texture = ExtResource("1_xe7pg")
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color = Color(0.273443, 0.274453, 1, 1)
+
+[node name="green_explosion" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dmcpg")
+position = Vector2(0.5, 0.5)
+emitting = false
+amount = 100
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.2
+explosiveness = 1.0
+texture = ExtResource("1_xe7pg")
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color = Color(0.256739, 0.750441, 3.85046e-07, 1)
+
+[node name="orange_explosion" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dmcpg")
+position = Vector2(0.5, 0.5)
+emitting = false
+amount = 100
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.2
+explosiveness = 1.0
+texture = ExtResource("1_xe7pg")
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color = Color(1, 0.357326, 0.290209, 1)
+
+[node name="blue_explosion" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dmcpg")
+position = Vector2(0.5, 0.5)
+emitting = false
+amount = 100
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.2
+explosiveness = 1.0
+texture = ExtResource("1_xe7pg")
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color = Color(0.12681, 0.98333, 0.736367, 1)
