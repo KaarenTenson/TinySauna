@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://br1ii77u6qe7k"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
-[ext_resource type="Texture2D" uid="uid://comlcfpt6csok" path="res://Assets/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="2_i7d0w"]
+[ext_resource type="Texture2D" uid="uid://b1n4ybe14683m" path="res://Assets/background/tite_armee.png" id="2_4233a"]
 [ext_resource type="Texture2D" uid="uid://8jk6pqa0vexq" path="res://Assets/Buttons/Play/Play1.png" id="3_3n4lr"]
 [ext_resource type="Texture2D" uid="uid://cfmskxldklcse" path="res://Assets/Buttons/Settings/Settings3.png" id="4_fbxqf"]
 [ext_resource type="Texture2D" uid="uid://d1eilquk21mr5" path="res://Assets/Buttons/Quit/Quit3.png" id="5_fphr7"]
@@ -43,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_i7d0w")
+texture = ExtResource("2_4233a")
 expand_mode = 1
 
 [node name="Container" type="VBoxContainer" parent="."]
@@ -71,7 +71,6 @@ size_flags_stretch_ratio = 1.5
 text = "
 "
 icon = ExtResource("3_3n4lr")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -82,7 +81,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 icon = ExtResource("4_fbxqf")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -94,7 +92,6 @@ size_flags_stretch_ratio = 1.2
 text = "
 "
 icon = ExtResource("5_fphr7")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
