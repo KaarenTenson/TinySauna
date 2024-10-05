@@ -59,5 +59,31 @@ layout_mode = 2
 text = "Exit
 "
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -203.5
+offset_right = 260.0
+offset_bottom = 203.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 51.0
+grow_horizontal = 0
+
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Container/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
