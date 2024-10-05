@@ -31,6 +31,7 @@ var timer_tee=0
 var holdtimer=30
 var hold_time=false
 var hold_count=4
+var damage_timer=0
 func kaotus():
 	score.text="kaotus"
 	set_process(false)
@@ -72,8 +73,10 @@ func _input(event):
 					$AudioStreamPlayer.play()
 					break
 				#vale klahv on vajutatud
-				Globals.Recive_Damage()
-			
+				if(damage_timer<=0):
+					damage_timer=0.5
+					Globals.Recive_Damage()
+				
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -97,6 +100,8 @@ func _process(delta: float) -> void:
 		timer_tee=tee_vahe
 	else:
 		timer_tee-=delta
+	if(damage_timer>0):
+		damage_timer-=delta
 	
 
 # teeb masiivi, kus suavlisi tähti ja numbreid võtta

@@ -39,7 +39,7 @@ func Inc_Multiplier():
 func Get_Damage() -> float:
 	return Score_Multiplier*Strength
 func Recive_Damage():
-	hp-=1/Score_Multiplier*5
+	hp-=10
 func Get_Key_Delete() -> float:
 	return sqrt(Speed)*1/(sqrt(Score_Multiplier))
 func Get_Regen() -> float:
