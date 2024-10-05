@@ -7,7 +7,7 @@ extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	audio_stream_player.play()
+	
 	h_slider.value=50;
 	audio_stream_player.volume_db=linear_to_db(h_slider.value/100)
 	print(linear_to_db(h_slider.value/100))

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
 [ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="9_nl3ih"]
 [ext_resource type="AudioStream" uid="uid://cxyca64je65bj" path="res://Music/Title (loopable).mp3" id="10_5gtid"]
-[ext_resource type="AudioStream" uid="uid://bxpmxotdraewo" path="res://SFX/menuUpgrade.mp3" id="11_oikpb"]
+[ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="10_opjs1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
 
@@ -183,7 +183,7 @@ size_flags_vertical = 1
 text = "100%"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_oikpb")
+stream = ExtResource("10_opjs1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5gtid")

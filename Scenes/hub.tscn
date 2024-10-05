@@ -67,6 +67,13 @@ columns = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="GridContainer/Control"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 65.0
+offset_right = 323.0
+offset_bottom = 301.0
+
 [node name="Skills" type="VBoxContainer" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
