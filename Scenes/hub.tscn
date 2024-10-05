@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=13 format=3 uid="uid://dg0x01olbffd"]
 
+[ext_resource type="Texture2D" uid="uid://cs63otx5vke6v" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
+[ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="1_vir36"]
+[ext_resource type="Texture2D" uid="uid://cs1rqkyl4owee" path="res://Assets/Buttons/B Buttons Small1.png" id="2_63ui5"]
 [ext_resource type="Texture2D" uid="uid://dvguncwwgkxo" path="res://Assets/LifeBarMiniUnder.png" id="2_ue26i"]
 [ext_resource type="Texture2D" uid="uid://bxw5pafchama2" path="res://Assets/LifeBarMiniProgress.png" id="3_18pxk"]
 [ext_resource type="Script" path="res://Scripts/beebi_selector.gd" id="4_dtpdt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg1pe"]
+texture = ExtResource("1_vir36")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwf0w"]
+texture = ExtResource("1_02q81")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_131dr"]
+texture = ExtResource("2_63ui5")
+
+[sub_resource type="Theme" id="Theme_3ubxk"]
+Button/colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = null
+Button/styles/focus = SubResource("StyleBoxTexture_gd38q")
+Button/styles/hover = SubResource("StyleBoxTexture_cg1pe")
+Button/styles/normal = SubResource("StyleBoxTexture_uwf0w")
+Button/styles/pressed = SubResource("StyleBoxTexture_131dr")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0.0117647, 0, 0, 1)
+Label/font_sizes/font_size = 25
 
 [node name="HUB" type="Control"]
 layout_mode = 3
@@ -12,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3ubxk")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -29,6 +56,7 @@ size_flags_horizontal = 3
 [node name="Skills" type="VBoxContainer" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 30
 script = ExtResource("1_tqliu")
 
@@ -83,6 +111,7 @@ texture_under = ExtResource("2_ue26i")
 texture_progress = ExtResource("3_18pxk")
 
 [node name="SpeedB" type="Button" parent="GridContainer/Skills/HBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -110,6 +139,7 @@ texture_under = ExtResource("2_ue26i")
 texture_progress = ExtResource("3_18pxk")
 
 [node name="PotionsB" type="Button" parent="GridContainer/Skills/HBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -131,6 +161,7 @@ theme_override_constants/separation = 30
 script = ExtResource("4_dtpdt")
 
 [node name="Button" type="Button" parent="GridContainer/BeebiSelector"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Select"
@@ -141,14 +172,21 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="vasak" type="Button" parent="GridContainer/BeebiSelector/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "left"
 
 [node name="parem" type="Button" parent="GridContainer/BeebiSelector/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "right"
+
+[node name="Vahe" type="Control" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

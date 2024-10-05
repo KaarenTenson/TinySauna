@@ -23,9 +23,17 @@ func _on_vasak_pressed() -> void:
 		indeks-=1
 		Globals.ChosenBeebi=valikud[indeks].keys()[0]
 		beebi.texture= load(valikud[indeks].values()[0])
+	else:
+		indeks=valikud.size()-1
+		Globals.ChosenBeebi=valikud[indeks].keys()[0]
+		beebi.texture= load(valikud[indeks].values()[0])
 
 func _on_parem_pressed() -> void:
 	if(indeks<valikud.size()-1):
 		indeks+=1
+		Globals.ChosenBeebi=valikud[indeks].keys()[0]
+		beebi.texture= load(valikud[indeks].values()[0])
+	else:
+		indeks=0
 		Globals.ChosenBeebi=valikud[indeks].keys()[0]
 		beebi.texture= load(valikud[indeks].values()[0])
