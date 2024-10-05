@@ -16,13 +16,17 @@ var visible_keys=[]
 #mitme sekundi tagant havitatkse popup
 var havita_vahe=3
 #mitme sekundi tagant tehakse 
-var tee_vahe=1
+var tee_vahe=0.5
 #jalgib, kas saab teha popupe või hävitada neid
 var timer_havita=0
 var timer_tee=0
-
+func kaotus():
+	score.text="kaotus"
+	set_process(false)
+	print("kaotsid")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.On_Hp0.connect(kaotus)
 	set_process_input(true)
 	#kloonides saab popupe teha
 	target_key_factory=target_key.instantiate()
@@ -34,6 +38,10 @@ func _input(event):
 	if event is InputEventKey:
 		if event.pressed:  # When a key is pressed down
 			var key_name = event.as_text()  # Get the human-readable key name
+			if(key_name=="Escape"):
+				get_tree().paused = !get_tree().paused
+				$Panel.visible=true
+				
 			#vaatab, kas vajutatud klahv on ekraanil
 			for node in visible_keys:
 				if !is_instance_valid(node):

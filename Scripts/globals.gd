@@ -6,7 +6,14 @@ var Skill_Points=5
 var ChosenBeebi
 var Score=0
 var Score_Multiplier=1
-var hp=100
+signal On_Hp0
+var hp=100:
+	set(value):
+		if(value<=0):
+			On_Hp0.emit()
+		else:
+			hp=value
+		
 
 func Get_Strength() -> int:
 	return Strength
