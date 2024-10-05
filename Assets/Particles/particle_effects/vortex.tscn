@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://1noo76be81dr"]
+
+[ext_resource type="Texture2D" uid="uid://et3qau4xlmgc" path="res://Assets/Particles/effect_4.png" id="1_v2505"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_keen6"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_fkgx7"]
+max_value = 360.0
+_data = [Vector2(0, 0), 0.0, 184.053, 0, 1, Vector2(1, 360), 736.588, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_waef5"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7olrq"]
+_data = [Vector2(0, 0), 0.0, 1.01705, 0, 1, Vector2(0.98324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -59.667, 0.0, 1, 0]
+point_count = 3
+
+[node name="vortex" type="Node2D"]
+
+[node name="green_vortex" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_keen6")
+emitting = false
+amount = 10
+lifetime = 2.5
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+texture = ExtResource("1_v2505")
+gravity = Vector2(0, 0)
+angular_velocity_min = 1.5
+angular_velocity_max = 3.0
+angular_velocity_curve = SubResource("Curve_fkgx7")
+orbit_velocity_curve = SubResource("Curve_waef5")
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_7olrq")
+color = Color(0.12549, 1, 0.623529, 1)
+
+[node name="yellow_vortex" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_keen6")
+emitting = false
+amount = 10
+lifetime = 2.5
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+texture = ExtResource("1_v2505")
+gravity = Vector2(0, 0)
+angular_velocity_min = 1.5
+angular_velocity_max = 3.0
+angular_velocity_curve = SubResource("Curve_fkgx7")
+orbit_velocity_curve = SubResource("Curve_waef5")
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_7olrq")
+color = Color(0.951804, 0.855879, 7.70092e-07, 1)
+
+[node name="blue_vortex" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_keen6")
+emitting = false
+amount = 10
+lifetime = 2.5
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+texture = ExtResource("1_v2505")
+gravity = Vector2(0, 0)
+angular_velocity_min = 1.5
+angular_velocity_max = 3.0
+angular_velocity_curve = SubResource("Curve_fkgx7")
+orbit_velocity_curve = SubResource("Curve_waef5")
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_7olrq")
+color = Color(0.103911, 0.97006, 0.920824, 1)
+
+[node name="pink_vortex" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_keen6")
+amount = 10
+lifetime = 2.5
+speed_scale = 0.4
+explosiveness = 1.0
+texture = ExtResource("1_v2505")
+gravity = Vector2(0, 0)
+angular_velocity_min = 1.5
+angular_velocity_max = 3.0
+angular_velocity_curve = SubResource("Curve_fkgx7")
+orbit_velocity_curve = SubResource("Curve_waef5")
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_7olrq")
+color = Color(0.833072, 4.85639e-05, 0.410617, 1)
