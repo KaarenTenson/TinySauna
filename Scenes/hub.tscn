@@ -18,6 +18,10 @@ texture = ExtResource("1_02q81")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_131dr"]
 texture = ExtResource("2_63ui5")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="Theme" id="Theme_3ubxk"]
 Button/colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
@@ -62,8 +66,12 @@ script = ExtResource("1_tqliu")
 
 [node name="skillpoints" type="Label" parent="GridContainer/Skills"]
 layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.3
+theme_override_font_sizes/font_size = 35
 text = "Skill points:"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Skills"]
 layout_mode = 2
