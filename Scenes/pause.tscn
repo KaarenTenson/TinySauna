@@ -3,11 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1n4ybe14683m" path="res://Assets/background/tite_armee.png" id="1_2cqmm"]
 [ext_resource type="Texture2D" uid="uid://de0bofrwbpuqr" path="res://Assets/Buttons/Resume/B_Resume1.png" id="2_svyqu"]
 [ext_resource type="Texture2D" uid="uid://dcl4vbf2lk63l" path="res://Assets/Buttons/Quit/B_Quit1.png" id="3_adiwj"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_d7d5j"]
-font_size = 100
-font_color = Color(0, 0, 0, 1)
-outline_size = 20
+[ext_resource type="Texture2D" uid="uid://dhik1lqaa6j6d" path="res://Assets/Combo/paused.png" id="4_55jt6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,19 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_2cqmm")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -194.0
-offset_top = 78.0
-offset_right = 192.0
-offset_bottom = 215.0
-grow_horizontal = 2
-text = "PAUSED"
-label_settings = SubResource("LabelSettings_d7d5j")
 
 [node name="resume" type="Button" parent="."]
 texture_filter = 1
@@ -62,3 +45,11 @@ offset_bottom = 561.0
 icon = ExtResource("3_adiwj")
 flat = true
 expand_icon = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 84.0
+offset_right = 902.0
+offset_bottom = 231.0
+texture = ExtResource("4_55jt6")
