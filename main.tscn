@@ -82,6 +82,7 @@ texture = ExtResource("2_w3qif")
 expand_mode = 1
 
 [node name="combo_effect" type="CPUParticles2D" parent="Mountain"]
+visible = false
 modulate = Color(0.525856, 0.0891788, 0.4121, 1)
 material = SubResource("CanvasItemMaterial_7cf33")
 position = Vector2(576, 289)

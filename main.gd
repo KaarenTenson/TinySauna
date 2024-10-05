@@ -70,7 +70,7 @@ func teepopup(taht) -> TextureRect:
 	var vanem=self
 	var random_x = randf_range((vanem.position.x+vanem.size.x*0.2), (vanem.position.x + vanem.size.x)*0.8)  # Adjust range as needed
 	var random_y = randf_range((vanem.position.y+vanem.size.y*0.2), (vanem.position.y + vanem.size.y)*0.8)  # Adjust range as needed
-	var suurus=size.x*randf_range(0.04,0.08)
+	var suurus=size.x*0.06
 	uus.size=Vector2(suurus,suurus)
 	uus.timer=havita_vahe
 	uus.get_node("Label").text=taht
