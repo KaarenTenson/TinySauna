@@ -27,6 +27,10 @@ var tee_vahe=2
 #jalgib, kas saab teha popupe või hävitada neid
 var timer_havita=0
 var timer_tee=0
+
+var holdtimer=30
+var hold_time=false
+var hold_count=4
 func kaotus():
 	score.text="kaotus"
 	set_process(false)
@@ -63,21 +67,35 @@ func _input(event):
 					Globals.Inc_Multiplier()
 					#havitab vajutatud klahvi masiivist 
 					visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
+					var tempobj=(teepopup(mangiv.pop_back()))
+					visible_keys.append(tempobj)
+					timer_tee=tee_vahe
 					break
 			
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	score.text="Score: "+str(Globals.Score)
+	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
+	#holdi jaoks, suht palju peab veel panema 
+	if(holdtimer<0):
+		if(holdtimer<(-(havita_vahe+1))):
+			for i in range(2):
+				var tempobj=(teepopup(mangiv.pop_back()))
+				visible_keys.append(tempobj)
+			hold_time=true
+		return
+	#kas manija võitis
 	if(mangiv.size()==0 and visible_keys.size()==0):
 		print("Game Over")
+	#kas tehakse uus popup
 	if(timer_tee<=0):
 		var tempobj=(teepopup(mangiv.pop_back()))
 		visible_keys.append(tempobj)
 		timer_tee=tee_vahe
 	else:
 		timer_tee-=delta
-	score.text="Score: "+str(Globals.Score)
-	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
+	
 
 # teeb masiivi, kus suavlisi tähti ja numbreid võtta
 func taida(suurus) -> Array:
@@ -102,6 +120,7 @@ func teepopup(taht) -> TextureRect:
 	# Add the new node to the scene as a child of the parent
 	vanem.add_child(uus)
 	return uus
+#particle effektide lisamine, kui popup havitatkse
 func Effect(Tposition):
 	
 	var explosion_temp: Node2D=explosions_factory.duplicate()
