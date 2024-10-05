@@ -7,8 +7,11 @@ var ChosenBeebi
 var Score=0
 var Score_Multiplier=1
 var Enemy_Hp=100
+var combo = 0
 signal On_Hp0
 signal On_HpChanged
+
+@onready var anim = $Crowd/crowd_hype
 
 var hp=100:
 	set(value):
@@ -16,6 +19,7 @@ var hp=100:
 			On_HpChanged.emit(value)
 			On_Hp0.emit()
 		else:
+			print("kaotasin elu")
 			On_HpChanged.emit(value)
 			hp=value
 		
@@ -33,9 +37,12 @@ func _process(delta: float) -> void:
 func Add_Score():
 	Score+=int(10*Score_Multiplier)
 func Dec_Multiplier():
-	Score_Multiplier*=0.7
+	Score_Multiplier = 1
+	combo = 0
 func Inc_Multiplier():
-	Score_Multiplier*=1.1
+	combo += 1
+	if (Score_Multiplier < 3):
+		Score_Multiplier += 0.1
 func Get_Damage() -> float:
 	return Score_Multiplier*Strength
 func Recive_Damage():
@@ -44,4 +51,9 @@ func Get_Key_Delete() -> float:
 	return sqrt(Speed)*1/(sqrt(Score_Multiplier))
 func Get_Regen() -> float:
 	return 0.01*Potions
-	
+
+func get_combo() -> int:
+	return combo
+
+func reset_combo():
+	combo = 0

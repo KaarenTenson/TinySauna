@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	if(timer<0):
 		Globals.Dec_Multiplier()
 		Globals.Recive_Damage()
+		Globals.reset_combo()
 		anim.play("fail")
 		anim.animation_finished.connect(havita)
 		timer=10
@@ -24,8 +25,6 @@ func Destroy_Self():
 	anim.animation_finished.connect(havita)
 	#explosion.position=self.positionease the number of particles
 	anim.play("key_press")
-	
-	
 
 func havita(a):
 	queue_free()

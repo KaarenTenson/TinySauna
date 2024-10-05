@@ -15,13 +15,17 @@ var explosions_factory
 @onready var score: Label = $Score
 @onready var multi_plier: Label = $MultiPlier
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var crowd_anim = $Crowd/crowd_hype
+@onready var boom_sound = $AudioStreamPlayer2D
 
+# crowd aanimation speed
+var anim_speed = 0
 #ehitatud popupstseen
 var target_key_factory
 #popupid, mis on ekraanil
 var visible_keys=[]
 #mitme sekundi tagant havitatkse popup
-var havita_vahe=3
+var havita_vahe=2
 #mitme sekundi tagant tehakse 
 var tee_vahe=2
 #jalgib, kas saab teha popupe või hävitada neid
@@ -36,6 +40,7 @@ func kaotus():
 	score.text="kaotus"
 	set_process(false)
 	print("kaotsid")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.On_Hp0.connect(kaotus)
@@ -47,7 +52,10 @@ func _ready() -> void:
 	explosions_factory=explosions.instantiate()
 	#taidab suvaliste charidega
 	taida(1000)
-	
+	# sets crowd animation speed to 0 and plays it
+	crowd_anim.speed_scale = anim_speed
+	crowd_anim.play("hype")
+
 func _input(event):
 	# Check if the input is a key event
 	if event is InputEventKey:
@@ -56,7 +64,6 @@ func _input(event):
 			if(key_name=="Escape"):
 				get_tree().paused = !get_tree().paused
 				$Panel.visible=true
-				
 			#vaatab, kas vajutatud klahv on ekraanil
 			for node in visible_keys:
 				if !is_instance_valid(node):
@@ -65,21 +72,22 @@ func _input(event):
 					#klahv on olemas, suurendab skoori ja selle multiplierit
 					Globals.Add_Score()
 					Globals.Inc_Multiplier()
-					#havitab vajutatud klahvi masiivist 
+					# havitab vajutatud klahvi masiivist 
 					visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
 					var tempobj=(teepopup(mangiv.pop_back()))
 					visible_keys.append(tempobj)
 					timer_tee=tee_vahe
-					$AudioStreamPlayer2D.play()
+					boom_sound.play()
 					break
 				#vale klahv on vajutatud
 				if(damage_timer<=0):
 					damage_timer=0.5
 					Globals.Recive_Damage()
-				
-		
+					Globals.Dec_Multiplier()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	combo_checker()
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
 	#holdi jaoks, suht palju peab veel panema 
@@ -127,9 +135,9 @@ func teepopup(taht) -> TextureRect:
 	# Add the new node to the scene as a child of the parent
 	vanem.add_child(uus)
 	return uus
+
 #particle effektide lisamine, kui popup havitatkse
 func Effect(Tposition):
-	
 	var explosion_temp: Node2D=explosions_factory.duplicate()
 	var fade_temp: Node2D=fades_factory.duplicate()
 	add_child(fade_temp)
@@ -147,4 +155,11 @@ func Effect(Tposition):
 	emitter2.amount *= 2  # Increase the number of particles
 	emitter2.emission_sphere_radius*=0.5
 	emitter2.emitting=true
-	
+
+# Checks how many correct inputs straight,
+# ramps up crowd animation speed according to combo
+func combo_checker():
+	var current_combo = Globals.get_combo()
+	anim_speed = current_combo / 5
+	if (anim_speed <= 6):
+		crowd_anim.speed_scale = anim_speed

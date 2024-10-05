@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=23 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://c25coep0xjbi6" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -41,38 +41,9 @@ tracks/0/keys = {
 "values": [Vector2(8, -3), Vector2(0, -3), Vector2(8, -3), Vector2(16, -3)]
 }
 
-[sub_resource type="Animation" id="Animation_q7eq2"]
-resource_name = "crowd_haiphaip"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -3), Vector2(8, -15), Vector2(8, -3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -3), Vector2(14, -11), Vector2(8, -15), Vector2(2, -3)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmoji"]
 _data = {
-"RESET": SubResource("Animation_blqmx"),
-"crowd_haiphaip": SubResource("Animation_q7eq2")
+"hype": SubResource("Animation_blqmx")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dhsx3"]
@@ -143,7 +114,6 @@ expand_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_rmoji")
 }
-speed_scale = 2.0
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
@@ -197,9 +167,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -260.0
-offset_top = -56.0
+offset_top = -67.0
 offset_right = 261.0
-offset_bottom = -4.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
