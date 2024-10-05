@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbc0aurrwwmle"]
+[gd_scene load_steps=3 format=3 uid="uid://cbc0aurrwwmle"]
 
 [ext_resource type="Texture2D" uid="uid://bp0minfvv7oou" path="res://Assets/Buttons/A Buttons Small3.png" id="1_otu81"]
+[ext_resource type="Script" path="res://Scenes/keys.gd" id="2_8irlg"]
 
 [node name="TextureRect" type="TextureRect"]
 texture_filter = 1
@@ -8,6 +9,7 @@ offset_right = 68.0
 offset_bottom = 40.0
 texture = ExtResource("1_otu81")
 expand_mode = 1
+script = ExtResource("2_8irlg")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
