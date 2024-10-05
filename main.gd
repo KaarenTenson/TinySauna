@@ -33,7 +33,6 @@ func _input(event):
 	# Check if the input is a key event
 	if event is InputEventKey:
 		if event.pressed:  # When a key is pressed down
-			
 			var key_name = event.as_text()  # Get the human-readable key name
 			#vaatab, kas vajutatud klahv on ekraanil
 			for node in visible_keys:
@@ -46,7 +45,6 @@ func _input(event):
 					#havitab vajutatud klahvi masiivist 
 					visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
 					break
-			
 			
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

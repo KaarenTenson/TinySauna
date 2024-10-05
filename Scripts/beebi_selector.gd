@@ -3,13 +3,15 @@ extends VBoxContainer
 @onready var vasak: Button = $HBoxContainer/vasak
 @onready var parem: Button = $HBoxContainer/parem
 
+
+
 var valikud=[{"jijitsuBeebi":"res://Assets/Beebid/es.png"},{"KungFuBeebi":"res://Assets/Beebid/ko.png"},{"TaekWonDooBeebi":"res://Assets/Beebid/ne.png"},
 {"KarateBeebi":"res://Assets/Beebid/te.png"}]
-
 
 var indeks=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AudioStreamPlayer2.play()
 	Globals.ChosenBeebi=valikud[1].keys()[0]
 	beebi.texture= load(valikud[1].values()[0])
 
