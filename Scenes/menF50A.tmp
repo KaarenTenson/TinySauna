@@ -1,0 +1,192 @@
+[gd_scene load_steps=15 format=3 uid="uid://br1ii77u6qe7k"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
+[ext_resource type="Texture2D" uid="uid://comlcfpt6csok" path="res://Assets/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="2_i7d0w"]
+[ext_resource type="Texture2D" uid="uid://8jk6pqa0vexq" path="res://Assets/Buttons/Play/Play1.png" id="3_3n4lr"]
+[ext_resource type="Texture2D" uid="uid://cfmskxldklcse" path="res://Assets/Buttons/Settings/Settings3.png" id="4_fbxqf"]
+[ext_resource type="Texture2D" uid="uid://d1eilquk21mr5" path="res://Assets/Buttons/Quit/Quit3.png" id="5_fphr7"]
+[ext_resource type="Texture2D" uid="uid://g0ssgs53hr8h" path="res://Assets/Buttons/A Buttons Big3.png" id="6_7ih2g"]
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="7_i6cuf"]
+[ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
+[ext_resource type="Texture2D" uid="uid://d34a6fbevs8j2" path="res://Assets/Buttons/C Buttons Small1.png" id="9_nl3ih"]
+[ext_resource type="AudioStream" uid="uid://cysapt31pwjiw" path="res://Music/Title.mp3" id="10_0rqqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
+
+[sub_resource type="Theme" id="Theme_j02bv"]
+Button/styles/focus = SubResource("StyleBoxEmpty_j5i3h")
+
+[sub_resource type="Theme" id="Theme_jgyst"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytuni"]
+texture = ExtResource("6_7ih2g")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j02bv")
+script = ExtResource("1_72f7w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i7d0w")
+expand_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -286.0
+offset_right = -40.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.54174, 2.17809)
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="start" type="Button" parent="Container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+text = "
+"
+icon = ExtResource("3_3n4lr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="settings" type="Button" parent="Container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+icon = ExtResource("4_fbxqf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="exit" type="Button" parent="Container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+text = "
+"
+icon = ExtResource("5_fphr7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.0
+offset_top = -196.0
+offset_right = 360.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jgyst")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ytuni")
+script = ExtResource("7_i6cuf")
+
+[node name="Button" type="Button" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_bottom = 64.0
+grow_horizontal = 0
+icon = ExtResource("8_2tvks")
+flat = true
+expand_icon = true
+
+[node name="Control" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -7.5
+offset_right = 303.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Control"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+texture = ExtResource("9_nl3ih")
+
+[node name="volume" type="Label" parent="Panel/Control/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -16.0
+offset_right = 42.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Volume:"
+
+[node name="HSlider" type="HSlider" parent="Panel/Control"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="vtext" type="Label" parent="Panel/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100%"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_0rqqi")
+autoplay = true
+
+[connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Container/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="Panel/Control/HSlider" to="Panel" method="_on_h_slider_value_changed"]
