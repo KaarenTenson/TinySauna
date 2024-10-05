@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=17 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://cs63otx5vke6v" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxw5pafchama2" path="res://Assets/LifeBarMiniProgress.png" id="3_18pxk"]
 [ext_resource type="Script" path="res://Scripts/beebi_selector.gd" id="4_dtpdt"]
 [ext_resource type="Texture2D" uid="uid://b1fuq463hhccm" path="res://Assets/background/sauna_bg.png" id="4_igw5r"]
+[ext_resource type="Script" path="res://Scripts/beebi_description.gd" id="5_r14wf"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="9_q475y"]
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
 
@@ -68,13 +69,28 @@ columns = 3
 [node name="Control" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("5_r14wf")
 
-[node name="Label" type="Label" parent="GridContainer/Control"]
+[node name="BeebiName" type="Label" parent="GridContainer/Control"]
+visible = false
 layout_mode = 0
 offset_left = 46.0
 offset_top = 65.0
-offset_right = 323.0
-offset_bottom = 301.0
+offset_right = 363.0
+offset_bottom = 107.0
+text = "BeebiName"
+
+[node name="BeebiDescription" type="Label" parent="GridContainer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 116.0
+offset_right = 345.0
+offset_bottom = 292.0
+text = "asdasfsafasdfsdafsdaf
+asdfasdfsdfsdfafdasfsa
+asdfasdfsdafsdafsdf
+asdfasfasdfsda"
 
 [node name="Skills" type="VBoxContainer" parent="GridContainer"]
 layout_mode = 2
@@ -243,5 +259,7 @@ grow_vertical = 0
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer2/SpeedB" to="GridContainer/Skills" method="_on_speed_b_pressed"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer3/PotionsB" to="GridContainer/Skills" method="_on_potions_b_pressed"]
 [connection signal="pressed" from="GridContainer/BeebiSelector/start" to="GridContainer/BeebiSelector" method="_on_start_pressed"]
+[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/vasak" to="GridContainer/Control" method="_on_vasak_pressed"]
 [connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/vasak" to="GridContainer/BeebiSelector" method="_on_vasak_pressed"]
+[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/parem" to="GridContainer/Control" method="_on_parem_pressed"]
 [connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/parem" to="GridContainer/BeebiSelector" method="_on_parem_pressed"]

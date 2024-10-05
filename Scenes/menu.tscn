@@ -197,11 +197,16 @@ wait_time = 10.0
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 103.0
-offset_top = 10.0
-offset_right = 537.0
-offset_bottom = 705.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.518
+anchor_right = 0.278
+anchor_bottom = 0.518
+offset_left = -217.256
+offset_top = -325.664
+offset_right = 216.744
+offset_bottom = 369.336
 texture = ExtResource("12_wjgpq")
 flip_h = true
 
