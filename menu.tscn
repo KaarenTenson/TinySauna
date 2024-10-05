@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5au6f8r0u3qg"]
+[gd_scene load_steps=6 format=3 uid="uid://c5au6f8r0u3qg"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_5ikjt"]
 [ext_resource type="Texture2D" uid="uid://comlcfpt6csok" path="res://flat,750x,075,f-pad,750x1000,f8f8f8.jpg" id="1_ignth"]
+[ext_resource type="Texture2D" uid="uid://cfmskxldklcse" path="res://Assets/Buttons/Settings/Settings3.png" id="3_1lws6"]
+[ext_resource type="Texture2D" uid="uid://d1eilquk21mr5" path="res://Assets/Buttons/Quit/Quit3.png" id="4_4onsu"]
+[ext_resource type="Texture2D" uid="uid://b8kd6m5ob3pdg" path="res://Assets/Buttons/No/No3.png" id="5_5pl05"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -50,14 +53,22 @@ expand_icon = true
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Settings
-"
+size_flags_vertical = 3
+icon = ExtResource("3_1lws6")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="exit" type="Button" parent="Container"]
 texture_filter = 1
 layout_mode = 2
-text = "Exit
+size_flags_vertical = 3
+text = "
 "
+icon = ExtResource("4_4onsu")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -82,6 +93,8 @@ anchor_right = 1.0
 offset_left = -54.0
 offset_bottom = 51.0
 grow_horizontal = 0
+icon = ExtResource("5_5pl05")
+expand_icon = true
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
