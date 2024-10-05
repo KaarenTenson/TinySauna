@@ -3,6 +3,7 @@ var Strength=4
 var Speed=1
 var Potions=3
 var Skill_Points=5
+var ChosenBeebi
 
 func Get_Strength() -> int:
 	return Strength
