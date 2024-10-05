@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=14 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://cs63otx5vke6v" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvguncwwgkxo" path="res://Assets/LifeBarMiniUnder.png" id="2_ue26i"]
 [ext_resource type="Texture2D" uid="uid://bxw5pafchama2" path="res://Assets/LifeBarMiniProgress.png" id="3_18pxk"]
 [ext_resource type="Script" path="res://Scripts/beebi_selector.gd" id="4_dtpdt"]
+[ext_resource type="Texture2D" uid="uid://b1fuq463hhccm" path="res://Assets/background/sauna_bg.png" id="4_igw5r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -43,6 +44,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_3ubxk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_igw5r")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
