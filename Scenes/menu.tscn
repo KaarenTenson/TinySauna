@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
 [ext_resource type="Texture2D" uid="uid://b1n4ybe14683m" path="res://Assets/background/tite_armee.png" id="2_4233a"]
-[ext_resource type="Texture2D" uid="uid://8jk6pqa0vexq" path="res://Assets/Buttons/Play/Play1.png" id="3_3n4lr"]
-[ext_resource type="Texture2D" uid="uid://cfmskxldklcse" path="res://Assets/Buttons/Settings/Settings3.png" id="4_fbxqf"]
-[ext_resource type="Texture2D" uid="uid://d1eilquk21mr5" path="res://Assets/Buttons/Quit/Quit3.png" id="5_fphr7"]
+[ext_resource type="Texture2D" uid="uid://dn01ho5xm2li6" path="res://Assets/Buttons/Play/B_Play1.png" id="3_8h2l7"]
+[ext_resource type="Texture2D" uid="uid://raffxflhh10j" path="res://Assets/Buttons/Settings/B_Settings1.png" id="4_w71k2"]
+[ext_resource type="Texture2D" uid="uid://dcl4vbf2lk63l" path="res://Assets/Buttons/Quit/B_Quit1.png" id="5_uttj2"]
 [ext_resource type="Texture2D" uid="uid://g0ssgs53hr8h" path="res://Assets/Buttons/A Buttons Big3.png" id="6_7ih2g"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="7_i6cuf"]
 [ext_resource type="Texture2D" uid="uid://ddi204q15wayw" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
@@ -71,7 +71,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 text = "
 "
-icon = ExtResource("3_3n4lr")
+icon = ExtResource("3_8h2l7")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -81,7 +82,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
-icon = ExtResource("4_fbxqf")
+icon = ExtResource("4_w71k2")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -92,7 +94,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 text = "
 "
-icon = ExtResource("5_fphr7")
+icon = ExtResource("5_uttj2")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -195,10 +198,10 @@ wait_time = 10.0
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 51.0
-offset_top = 20.0
-offset_right = 485.0
-offset_bottom = 715.0
+offset_left = 103.0
+offset_top = 10.0
+offset_right = 537.0
+offset_bottom = 705.0
 texture = ExtResource("12_wjgpq")
 flip_h = true
 
