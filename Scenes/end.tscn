@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://buhxvmie6ve5b"]
+[gd_scene load_steps=5 format=3 uid="uid://cpqrbgf8p3skv"]
 
 [ext_resource type="Script" path="res://Scenes/end.gd" id="1_kvidf"]
 [ext_resource type="Texture2D" uid="uid://xr2dvxaturm8" path="res://Assets/background/outro_taust.png" id="2_ew2b5"]

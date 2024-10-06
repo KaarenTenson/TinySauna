@@ -32,6 +32,8 @@ var explosions_factory
 @onready var beebi_texture: TextureRect = $Control/Beebi/BeebiTexture
 @onready var beebi: VBoxContainer = $Control/Beebi
 @onready var volur: Control = $volur
+@onready var main_soundtrack: AudioStreamPlayer2D = $Main_Soundtrack
+
 
 @onready var animation_player: AnimationPlayer = $Control/Beebi/AnimationPlayer
 
@@ -60,6 +62,9 @@ var timer_havita=0
 var timer_tee=0
 var previous_key=""
 
+var bombtimer=0
+var bomb_vahe=5
+
 var holdtimer=30
 var hold_time=false
 var hold_count=4
@@ -81,14 +86,16 @@ var timeout = false
 var timeout_held = false
 
 func kaotus():
-	score.text="kaotus"
-	set_process(false)
-	print("kaotsid")
-func voit():
-	pass
-
+	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
+func voit(value):
+	get_tree().change_scene_to_file("res://Scenes/end.tscn")
+func bomb():
+	for i in range(2):
+		visible_keys.append(teepopup(mangiv.pop_back()))
+	combo_effect.color=Color.RED
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main_soundtrack.finished.connect(voit)
 	beebi_texture.texture=load(valikud[Globals.ChosenBeebi])
 	Globals.On_Hp0.connect(kaotus)
 	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
@@ -153,7 +160,6 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	combo_checker()
-	beebi.position.x+=Globals.Get_MoveSpeed()*delta
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
 	#holdi jaoks, suht palju peab veel panema 
@@ -168,8 +174,6 @@ func _process(delta: float) -> void:
 			hold_time=true
 		return
 	#kas manija võitis
-	if(beebi.global_position.x+beebi.size.x-50>volur.global_position.x):
-		print("Game Over")
 	#kas tehakse uus popup
 	if (first):
 		if(timer_tee <= 0):
@@ -287,9 +291,17 @@ func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
 		combo_effect.visible=true
-
+	if(current_combo>7):
+		if(bombtimer<=0):
+			bomb()
+			bombtimer=bomb_vahe
+		else:
+			bombtimer-=get_process_delta_time()
+		combo_effect.visible=true
 		
 	if(current_combo<4):
+		bombtimer=0
+		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
 	anim_speed = current_combo / 5
 	if (anim_speed <= 6):

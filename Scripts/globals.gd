@@ -59,6 +59,25 @@ func Get_MoveSpeed() -> float:
 	return Globals.Speed*(Globals.Score_Multiplier+combo)
 func get_combo() -> int:
 	return combo
+func reset_Score():
+	Score=0
+	Score_Multiplier=0
+	combo=0
+func Get_Skill_Points():
+	if(Score<1000):
+		Skill_Points+=2
+	elif(Score<10000):
+		Skill_Points+=5
+	elif(Score<100000):
+		Skill_Points+=10
+	else:
+		Skill_Points+=12
+func reset_skills():
+	Speed=1
+	Strength=1
+	Potions=1
+	Skill_Points=1
 
+	
 func reset_combo():
 	combo = 0
