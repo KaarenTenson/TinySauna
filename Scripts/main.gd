@@ -92,6 +92,12 @@ var timeout_held = false
 @onready var texture_rect: TextureRect = $TextureRect
 var comboui=true
 
+signal  SuperComboEnter
+signal  ComboEnter
+signal ComboExit
+var kasCombos=false
+var kasSuperCombos=false
+
 func kaotus():
 	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
 func voit():
@@ -304,11 +310,17 @@ func Effect(Tposition):
 func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
+		if(kasCombos==false):
+			kasCombos=true
+			ComboEnter.emit()
 		combo_effect.visible=true
 		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][0])
 		if!(combo_stream_player_2d.playing):
 			combo_stream_player_2d.play()
 	if(current_combo> 7*(sqrt(Globals.Strength))):
+		if(kasSuperCombos==false):
+			kasSuperCombos=true
+			SuperComboEnter.emit()
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
@@ -320,6 +332,9 @@ func combo_checker():
 		combo_effect.visible=true
 		
 	if(current_combo<4):
+		kasCombos=false
+		kasSuperCombos=false
+		ComboExit.emit()
 		texture_rect.visible=false
 		comboui=true
 		combo_stream_player_2d.stop()
