@@ -54,6 +54,15 @@ grow_vertical = 2
 texture = ExtResource("2_jf2x5")
 expand_mode = 1
 
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.0
+offset_top = 351.0
+offset_right = 888.0
+offset_bottom = 711.0
+texture = ExtResource("15_l26ch")
+
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -159.0
@@ -235,15 +244,6 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
-
-[node name="TextureRect4" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 24.0
-offset_top = 351.0
-offset_right = 888.0
-offset_bottom = 711.0
-texture = ExtResource("15_l26ch")
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
