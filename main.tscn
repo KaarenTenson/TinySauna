@@ -166,8 +166,9 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AnimatedSprite2D" parent="Control/Beebi/Control" instance=ExtResource("8_n1iy3")]
-position = Vector2(89.5, 61.5)
-scale = Vector2(2.41016, 2.23593)
+position = Vector2(85.5, 64.5)
+scale = Vector2(2.82129, 2.61734)
+animation = &"wizard_dance"
 frame_progress = 0.393677
 
 [node name="volur" type="Control" parent="."]
@@ -181,6 +182,8 @@ script = ExtResource("9_id2nm")
 [node name="AnimatedSprite2D" parent="volur" instance=ExtResource("8_n1iy3")]
 position = Vector2(64, 210)
 scale = Vector2(5.6875, 5.6875)
+animation = &"wizard_dance"
+frame_progress = 0.837828
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
