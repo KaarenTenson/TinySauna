@@ -170,7 +170,7 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(Globals.hp<100):
-		Globals.hp+=regen*delta
+		Globals.hp+=(regen*delta)/3
 	else:
 		Globals.hp=100
 	combo_checker()

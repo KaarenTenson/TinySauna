@@ -1,7 +1,7 @@
 extends Node
-var Strength=1
-var Speed=1
-var Potions=1
+var Strength=7
+var Speed=7
+var Potions=7
 var Skill_Points=3
 
 signal On_Babychanged
