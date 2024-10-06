@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=18 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://cs63otx5vke6v" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/beebi_description.gd" id="5_r14wf"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="9_q475y"]
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
+[ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="12_g8dld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -254,6 +255,11 @@ offset_left = -245.0
 offset_top = -299.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("12_g8dld")]
 
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer/StrengthB" to="GridContainer/Skills" method="_on_strength_b_pressed"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer2/SpeedB" to="GridContainer/Skills" method="_on_speed_b_pressed"]
