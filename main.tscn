@@ -169,7 +169,7 @@ size_flags_vertical = 3
 [node name="AnimatedSprite2D" parent="Control/Beebi/Control" instance=ExtResource("8_n1iy3")]
 position = Vector2(89.5, 61.5)
 scale = Vector2(2.41016, 2.23593)
-frame_progress = 0.853679
+frame_progress = 0.994972
 
 [node name="volur" type="Control" parent="."]
 anchors_preset = 0

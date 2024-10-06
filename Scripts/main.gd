@@ -71,6 +71,8 @@ var hold_time=false
 var hold_count=4
 var damage_timer=0
 
+var regen
+
 # gameplay switch
 var first = true
 var second = false
@@ -96,6 +98,9 @@ func bomb():
 	combo_effect.color=Color.RED
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	tee_vahe=sqrt(Globals.Speed)/2
+	havita_vahe=sqrt(Globals.Strength)*2
+	regen=Globals.Get_Regen()
 	main_soundtrack.finished.connect(voit)
 	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi]
 	Globals.On_Hp0.connect(kaotus)
@@ -160,6 +165,10 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(Globals.hp<100):
+		Globals.hp+=regen*delta
+	else:
+		Globals.hp=100
 	combo_checker()
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
@@ -292,7 +301,7 @@ func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
 		combo_effect.visible=true
-	if(current_combo>7):
+	if(current_combo> 7*(1/ sqrt(Globals.Strength))):
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe

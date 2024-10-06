@@ -54,7 +54,7 @@ func Recive_Damage():
 func Get_Key_Delete() -> float:
 	return sqrt(Speed)*1/(sqrt(Score_Multiplier))
 func Get_Regen() -> float:
-	return 0.01*Potions
+	return Potions
 func Get_MoveSpeed() -> float:
 	return Globals.Speed*(Globals.Score_Multiplier+combo)
 func get_combo() -> int:
