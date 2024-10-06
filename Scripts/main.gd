@@ -20,7 +20,7 @@ var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
 var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
 var valikud={"jijitsuBeebi":"res://Assets/Beebid/es.png","KungFuBeebi":"res://Assets/Beebid/ko.png","TaekWonDooBeebi":"res://Assets/Beebid/ne.png",
 "KarateBeebi":"res://Assets/Beebid/te.png"}
-var animbeebi={"jijitsuBeebi":"jiujitsu_dance", "KungFuBeebi": "kungufu_dance", "TaekWonDooBeebi": "taekwondo_dance","KarateBeebi":"karate_dance"}
+var animbeebi={"jijitsuBeebi":["jiujitsu_dance", "jiujitsu_idle"], "KungFuBeebi": ["kungufu_dance","kungfu_idle"], "TaekWonDooBeebi": ["taekwondo_dance", "taekwondo_idle"],"KarateBeebi":["karate_dance", "karate_idle"]}
 var fades_factory
 var explosions_factory
 @onready var score: Label = $Score
@@ -33,6 +33,7 @@ var explosions_factory
 @onready var beebi: VBoxContainer = $Control/Beebi
 @onready var volur: Control = $volur
 @onready var main_soundtrack: AudioStreamPlayer2D = $Main_Soundtrack
+@onready var combo_stream_player_2d: AudioStreamPlayer2D = $ComboStreamPlayer2D
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $Control/Beebi/Control/AnimatedSprite2D
@@ -90,7 +91,7 @@ var timeout_held = false
 
 func kaotus():
 	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
-func voit(value):
+func voit():
 	get_tree().change_scene_to_file("res://Scenes/end.tscn")
 func bomb():
 	for i in range(2):
@@ -102,7 +103,8 @@ func _ready() -> void:
 	havita_vahe=sqrt(Globals.Strength)*2
 	regen=Globals.Get_Regen()
 	main_soundtrack.finished.connect(voit)
-	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi]
+	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi][1]
+	animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 	Globals.On_Hp0.connect(kaotus)
 	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
 	set_process_input(true)
@@ -300,18 +302,22 @@ func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
 		combo_effect.visible=true
+		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][0])
+		if!(combo_stream_player_2d.playing):
+			combo_stream_player_2d.play()
 	if(current_combo> 7*(sqrt(Globals.Strength))):
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
-			animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi])
+			
 		else:
 			bombtimer-=get_process_delta_time()
 		combo_effect.visible=true
 		
 	if(current_combo<4):
+		combo_stream_player_2d.stop()
 		bombtimer=0
-		animated_sprite_2d.stop()
+		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
 	anim_speed = current_combo / 5

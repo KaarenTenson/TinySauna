@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=35 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -22,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://dgcaoloy6rr68" path="res://Scenes/pause.tscn" id="19_by70b"]
 [ext_resource type="AudioStream" uid="uid://c7kraxunm0sel" path="res://SFX/boom/boom15.wav" id="19_lfwsb"]
 [ext_resource type="AudioStream" uid="uid://bdr75r5ce17gy" path="res://Music/Baby Dance.mp3" id="20_g0k6x"]
+[ext_resource type="AudioStream" uid="uid://daij085h0pd7l" path="res://SFX/awesome_combo3.mp3" id="23_rlb72"]
+[ext_resource type="AudioStream" uid="uid://wn6pg07udby1" path="res://SFX/combo1.wav" id="24_wevmt"]
+[ext_resource type="AudioStream" uid="uid://cbt74b04jjsgp" path="res://SFX/combo2.wav" id="25_a40te"]
+[ext_resource type="AudioStream" uid="uid://c1q7j5mfrnvcf" path="res://SFX/combo3.wav" id="26_ns6x2"]
+[ext_resource type="AudioStream" uid="uid://mvjy58ruwx1j" path="res://SFX/combo5.wav" id="27_5s5ss"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
 blend_mode = 1
@@ -50,6 +55,12 @@ _data = {
 "hype": SubResource("Animation_blqmx")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_i4glw"]
+font_names = PackedStringArray("Vladimir Script")
+
+[sub_resource type="SystemFont" id="SystemFont_2kd0a"]
+font_names = PackedStringArray("Vladimir Script")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dhsx3"]
 streams_count = 10
 stream_0/stream = ExtResource("10_k3a6s")
@@ -62,6 +73,14 @@ stream_6/stream = ExtResource("16_dpvpi")
 stream_7/stream = ExtResource("17_e1tym")
 stream_8/stream = ExtResource("18_a5gtp")
 stream_9/stream = ExtResource("19_lfwsb")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0set8"]
+streams_count = 6
+stream_0/stream = ExtResource("23_rlb72")
+stream_2/stream = ExtResource("24_wevmt")
+stream_3/stream = ExtResource("25_a40te")
+stream_4/stream = ExtResource("26_ns6x2")
+stream_5/stream = ExtResource("27_5s5ss")
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -166,8 +185,9 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AnimatedSprite2D" parent="Control/Beebi/Control" instance=ExtResource("8_n1iy3")]
-position = Vector2(89.5, 61.5)
-scale = Vector2(2.41016, 2.23593)
+position = Vector2(85.5, 64.5)
+scale = Vector2(2.82129, 2.61734)
+animation = &"wizard_dance"
 frame_progress = 0.393677
 
 [node name="volur" type="Control" parent="."]
@@ -181,19 +201,29 @@ script = ExtResource("9_id2nm")
 [node name="AnimatedSprite2D" parent="volur" instance=ExtResource("8_n1iy3")]
 position = Vector2(64, 210)
 scale = Vector2(5.6875, 5.6875)
+animation = &"wizard_dance"
+frame_progress = 0.837828
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_i4glw")
+theme_override_font_sizes/font_size = 50
 
 [node name="MultiPlier" type="Label" parent="."]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 40.0
 offset_bottom = 82.0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_2kd0a")
+theme_override_font_sizes/font_size = 50
 
 [node name="Hold_Keys_Controller" parent="." instance=ExtResource("9_qvmqw")]
 visible = false
@@ -205,6 +235,9 @@ stream = SubResource("AudioStreamRandomizer_dhsx3")
 
 [node name="Main_Soundtrack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g0k6x")
+
+[node name="ComboStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0set8")
 
 [node name="pausemenu" parent="." instance=ExtResource("19_by70b")]
 process_mode = 3

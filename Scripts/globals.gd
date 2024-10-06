@@ -2,7 +2,7 @@ extends Node
 var Strength=1
 var Speed=1
 var Potions=1
-var Skill_Points=5
+var Skill_Points=3
 
 signal On_Babychanged
 var ChosenBeebi="TaekWonDooBeebi":
@@ -64,14 +64,9 @@ func reset_Score():
 	combo=0
 	hp=100
 func Get_Skill_Points():
-	if(Score<1000):
-		Skill_Points+=2
-	elif(Score<10000):
-		Skill_Points+=5
-	elif(Score<100000):
-		Skill_Points+=10
-	else:
-		Skill_Points+=12
+	Skill_Points+=1
+	if(Score > 1000):
+		Skill_Points+= floor(sqrt(Score))
 func reset_skills():
 	Speed=1
 	Strength=1
