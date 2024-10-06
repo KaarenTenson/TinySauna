@@ -194,12 +194,14 @@ libraries = {
 
 [node name="volur" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 880.0
+offset_top = 114.0
+offset_right = 920.0
+offset_bottom = 154.0
 
 [node name="Sprite2D" type="Sprite2D" parent="volur"]
 texture_filter = 1
-position = Vector2(969, 281)
+position = Vector2(104, 205)
 scale = Vector2(6.46875, 6.46875)
 texture = ExtResource("8_n42kh")
 

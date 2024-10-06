@@ -31,6 +31,8 @@ var explosions_factory
 @onready var combo_effect: CPUParticles2D = $Mountain/combo_effect
 @onready var beebi_texture: TextureRect = $Control/Beebi/BeebiTexture
 @onready var beebi: VBoxContainer = $Control/Beebi
+@onready var volur: Control = $volur
+
 @onready var animation_player: AnimationPlayer = $Control/Beebi/AnimationPlayer
 
 
@@ -82,6 +84,8 @@ func kaotus():
 	score.text="kaotus"
 	set_process(false)
 	print("kaotsid")
+func voit():
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -164,7 +168,7 @@ func _process(delta: float) -> void:
 			hold_time=true
 		return
 	#kas manija võitis
-	if(mangiv.size()==0 and visible_keys.size()==0):
+	if(beebi.global_position.x+beebi.size.x-50>volur.global_position.x):
 		print("Game Over")
 	#kas tehakse uus popup
 	if (first):
