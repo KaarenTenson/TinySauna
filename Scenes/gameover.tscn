@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwvwheun366to"]
+[gd_scene load_steps=5 format=3 uid="uid://cwvwheun366to"]
 
-[ext_resource type="Script" path="res://Scenes/gameover.gd" id="1_m1cwx"]
-[ext_resource type="Texture2D" uid="uid://bylr5y2hmxj8f" path="res://Scenes/GAME OVER.png" id="2_ljgj8"]
-[ext_resource type="Texture2D" uid="uid://bn4u56yme16fs" path="res://Assets/Buttons/Continue/B_Continue1.png" id="3_wh6l3"]
-[ext_resource type="Texture2D" uid="uid://dcl4vbf2lk63l" path="res://Assets/Buttons/Quit/B_Quit1.png" id="4_ivoam"]
+[ext_resource type="Script" path="res://Scripts/gameover.gd" id="1_m1cwx"]
+[ext_resource type="Texture2D" uid="uid://b1d4h24vjwylq" path="res://Assets/GAME OVER.png" id="2_ljgj8"]
+[ext_resource type="Texture2D" uid="uid://cwsd2ith44ba8" path="res://Assets/Buttons/Continue/B_Continue1.png" id="3_wh6l3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cl7aj"]
 
@@ -41,15 +40,4 @@ icon = ExtResource("3_wh6l3")
 flat = true
 expand_icon = true
 
-[node name="Button2" type="Button" parent="TextureRect"]
-layout_mode = 0
-offset_left = 383.0
-offset_top = 424.0
-offset_right = 755.0
-offset_bottom = 567.0
-icon = ExtResource("4_ivoam")
-flat = true
-expand_icon = true
-
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]
