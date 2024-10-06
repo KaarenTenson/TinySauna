@@ -97,14 +97,18 @@ signal  ComboEnter
 signal ComboExit
 var kasCombos=false
 var kasSuperCombos=false
+var kasvõetud=false
 
 func kaotus():
 	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
 func voit():
 	get_tree().change_scene_to_file("res://Scenes/end.tscn")
 func bomb():
-	for i in range(2):
-		visible_keys.append(teepopup(mangiv.pop_back()))
+	if(visible_keys.size()>10):
+			visible_keys = visible_keys.filter(func(x): return x != null)
+	else:
+		for i in range(2):
+			visible_keys.append(teepopup(mangiv.pop_back()))
 	combo_effect.color=Color.RED
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -143,6 +147,7 @@ func _input(event):
 						visible_keys.sort()
 					elif (node.get_node("Label").text == key_name):
 						#klahv on olemas, suurendab skoori ja selle multiplierit
+						kasvõetud=true
 						Globals.Add_Score()
 						Globals.Inc_Multiplier()
 						# havitab vajutatud klahvi masiivist 
@@ -154,10 +159,11 @@ func _input(event):
 						
 						break
 					#vale klahv on vajutatud
-					if(damage_timer<=0):
-						damage_timer = 0.5
-						Globals.Recive_Damage()
-						Globals.Dec_Multiplier()
+				if(damage_timer<=0 and !kasvõetud):
+					damage_timer = 0.5
+					Globals.Recive_Damage()
+					Globals.Dec_Multiplier()
+				kasvõetud=false
 			# When we are in second phase and the timer is ticking
 			if (second and !timeout):
 				# When both right keys are held down
@@ -197,9 +203,12 @@ func _process(delta: float) -> void:
 	#kas tehakse uus popup
 	if (first):
 		if(timer_tee <= 0):
-			var tempobj = (teepopup(mangiv.pop_back()))
-			visible_keys.append(tempobj)
-			timer_tee=tee_vahe
+			if(visible_keys.size()>10):
+				visible_keys = visible_keys.filter(func(x): return x != null)
+			else:
+				var tempobj = (teepopup(mangiv.pop_back()))
+				visible_keys.append(tempobj)
+				timer_tee=tee_vahe
 		else:
 			timer_tee-=delta
 		if(damage_timer>0):
