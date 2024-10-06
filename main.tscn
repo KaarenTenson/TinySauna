@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
 [ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="8_n1iy3"]
 [ext_resource type="Script" path="res://volur.gd" id="9_id2nm"]
-[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
+[ext_resource type="PackedScene" uid="uid://cei7lg1yyrf55" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]

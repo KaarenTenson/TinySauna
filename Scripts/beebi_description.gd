@@ -11,8 +11,6 @@ func _ready() -> void:
 	$BeebiDescription.text = beebi_descriptions[Globals.ChosenBeebi]
 	beebiHääl(beebi_hääled[Globals.ChosenBeebi])
 	Globals.On_Babychanged.connect(ChangeBaby)
-	if(Globals.Skill_Points > 7):
-		Globals.Skill_Points = 7
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
