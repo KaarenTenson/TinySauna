@@ -1,14 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dixt7wfyefoin"]
+[gd_scene load_steps=12 format=3 uid="uid://dixt7wfyefoin"]
 
 [ext_resource type="Script" path="res://Scripts/gameover.gd" id="1_m1cwx"]
 [ext_resource type="Texture2D" uid="uid://b1d4h24vjwylq" path="res://Assets/GAME OVER.png" id="2_ljgj8"]
 [ext_resource type="Texture2D" uid="uid://cwsd2ith44ba8" path="res://Assets/Buttons/Continue/B_Continue1.png" id="3_wh6l3"]
 [ext_resource type="AudioStream" uid="uid://cc4k8vwd0nwq3" path="res://SFX/gameover.mp3" id="4_bwhqs"]
+[ext_resource type="AudioStream" uid="uid://burjpiwd0pe6w" path="res://SFX/death_jiujitsu.mp3" id="5_em8we"]
+[ext_resource type="AudioStream" uid="uid://cidac1bnm8tkk" path="res://SFX/death_karate.mp3" id="6_cvwt4"]
+[ext_resource type="AudioStream" uid="uid://38nihdfoggxm" path="res://SFX/death_kungfu.mp3" id="7_5rdxp"]
+[ext_resource type="AudioStream" uid="uid://cvhdi06f6i8m" path="res://SFX/death_taekwondo.mp3" id="8_1ixiu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cl7aj"]
 
 [sub_resource type="SystemFont" id="SystemFont_gl6bo"]
 font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tnkbo"]
+streams_count = 4
+stream_0/stream = ExtResource("5_em8we")
+stream_1/stream = ExtResource("6_cvwt4")
+stream_2/stream = ExtResource("7_5rdxp")
+stream_3/stream = ExtResource("8_1ixiu")
 
 [node name="Gameover" type="Node2D"]
 script = ExtResource("1_m1cwx")
@@ -64,4 +75,8 @@ expand_icon = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_bwhqs")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tnkbo")
+
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D2" to="." method="_on_audio_stream_player_2d_2_finished"]

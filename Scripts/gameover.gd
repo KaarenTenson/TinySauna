@@ -5,7 +5,7 @@ func _ready() -> void:
 	$TextureRect/Label.text="Score: "+str(Globals.Score)
 	Globals.Get_Skill_Points()
 	Globals.reset_Score()
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D2.play()
 	pass # Replace with function body.
 
 
@@ -16,3 +16,8 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/hub.tscn")
+
+
+func _on_audio_stream_player_2d_2_finished() -> void:
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.
