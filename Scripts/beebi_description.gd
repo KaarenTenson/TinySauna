@@ -18,5 +18,5 @@ func _on_vasak_pressed() -> void:
 
 
 func _on_parem_pressed() -> void:
-	$BeebiName.texture = beebi_coolnames[Globals.ChosenBeebi]
+	$BeebiName.texture = load(beebi_coolnames[Globals.ChosenBeebi])
 	$BeebiDescription.text = beebi_descriptions[Globals.ChosenBeebi]
