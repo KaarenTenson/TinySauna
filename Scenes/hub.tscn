@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=28 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://c53egabqmcsas" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -14,9 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://btabgr83x2fc5" path="res://Assets/Beebid/kiirus.png" id="9_lumec"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="9_q475y"]
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
-[ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="12_ahsgy"]
+[ext_resource type="PackedScene" uid="uid://dgcaoloy6rr68" path="res://Scenes/pause.tscn" id="12_ahsgy"]
 [ext_resource type="Texture2D" uid="uid://ct2nhr1og52ym" path="res://Assets/Beebid/võlujook.png" id="13_b4wlw"]
 [ext_resource type="Texture2D" uid="uid://dn6qwax63rrtc" path="res://Assets/Buttons/Menu/C_Menu1.png" id="14_ctv7e"]
+[ext_resource type="Texture2D" uid="uid://pyc3wk3ti2x7" path="res://Assets/Beebid/arrow.png" id="15_1plcc"]
+[ext_resource type="Texture2D" uid="uid://dyypv6jwo8m4y" path="res://Assets/Beebid/arrow_reverse.png" id="16_nfrpa"]
+[ext_resource type="Texture2D" uid="uid://co7dguyx4a2td" path="res://Assets/Buttons/Play/A_Play1.png" id="18_33cfn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -49,8 +52,7 @@ Label/font_sizes/font_size = 25
 font = ExtResource("6_fckmr")
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_frfwr"]
-font = ExtResource("6_fckmr")
+[sub_resource type="SystemFont" id="SystemFont_2fypq"]
 
 [node name="HUB" type="Control"]
 layout_mode = 3
@@ -75,6 +77,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
@@ -115,17 +119,25 @@ size_flags_vertical = 3
 theme_override_constants/separation = 30
 script = ExtResource("1_tqliu")
 
+[node name="Control" type="Control" parent="GridContainer/Skills"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GridContainer/Skills"]
 stream = ExtResource("9_q475y")
 volume_db = -10.0
 
 [node name="skillpoints" type="Label" parent="GridContainer/Skills"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 size_flags_stretch_ratio = 1.3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_2fypq")
 theme_override_font_sizes/font_size = 35
 text = "Skill points:"
-label_settings = SubResource("LabelSettings_frfwr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -228,6 +240,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="parem" type="Button" parent="GridContainer/Beebi"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 262.0
+offset_top = 98.0
+offset_right = 643.0
+offset_bottom = 244.0
+size_flags_horizontal = 3
+icon = ExtResource("15_1plcc")
+flat = true
+expand_icon = true
+
+[node name="vasak" type="Button" parent="GridContainer/Beebi"]
+texture_filter = 1
+layout_mode = 2
+offset_left = -24.0
+offset_top = 99.0
+offset_right = 164.0
+offset_bottom = 245.0
+size_flags_horizontal = 3
+icon = ExtResource("16_nfrpa")
+flat = true
+expand_icon = true
+
 [node name="BeebiSelector" type="VBoxContainer" parent="GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
@@ -241,24 +277,13 @@ volume_db = -10.0
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-text = "Select"
+icon = ExtResource("18_33cfn")
+flat = true
 expand_icon = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/BeebiSelector"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="vasak" type="Button" parent="GridContainer/BeebiSelector/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-text = "left"
-
-[node name="parem" type="Button" parent="GridContainer/BeebiSelector/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-text = "right"
 
 [node name="Vahe" type="Control" parent="GridContainer"]
 layout_mode = 2
@@ -268,6 +293,8 @@ size_flags_vertical = 3
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GridContainer"]
 stream = ExtResource("10_0x86r")
 autoplay = true
+
+[node name="Beebihääl" type="AudioStreamPlayer2D" parent="GridContainer"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -281,6 +308,9 @@ offset_top = -299.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HBoxContainer"]
+position = Vector2(-907, -349)
+
 [node name="Control" parent="." instance=ExtResource("12_ahsgy")]
 process_mode = 3
 visible = false
@@ -290,8 +320,8 @@ layout_mode = 1
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer2/SpeedB" to="GridContainer/Skills" method="_on_speed_b_pressed"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer3/PotionsB" to="GridContainer/Skills" method="_on_potions_b_pressed"]
 [connection signal="pressed" from="GridContainer/Control2/Button" to="GridContainer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Beebi/parem" to="GridContainer/Control" method="_on_parem_pressed"]
+[connection signal="pressed" from="GridContainer/Beebi/parem" to="GridContainer/BeebiSelector" method="_on_parem_pressed"]
+[connection signal="pressed" from="GridContainer/Beebi/vasak" to="GridContainer/Control" method="_on_vasak_pressed"]
+[connection signal="pressed" from="GridContainer/Beebi/vasak" to="GridContainer/BeebiSelector" method="_on_vasak_pressed"]
 [connection signal="pressed" from="GridContainer/BeebiSelector/start" to="GridContainer/BeebiSelector" method="_on_start_pressed"]
-[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/vasak" to="GridContainer/Control" method="_on_vasak_pressed"]
-[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/vasak" to="GridContainer/BeebiSelector" method="_on_vasak_pressed"]
-[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/parem" to="GridContainer/Control" method="_on_parem_pressed"]
-[connection signal="pressed" from="GridContainer/BeebiSelector/HBoxContainer/parem" to="GridContainer/BeebiSelector" method="_on_parem_pressed"]

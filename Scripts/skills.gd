@@ -10,7 +10,7 @@ extends VBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AudioStreamPlayer.play()
-	skillpoints.text="points:"+str(Globals.Skill_Points)
+	skillpoints.text="Points: "+str(Globals.Skill_Points) + "   "
 	speed.value=Globals.Speed*10
 	potions.value=Globals.Potions*10
 	strength.value=Globals.Strength*10
@@ -26,7 +26,7 @@ func _on_strength_b_pressed() -> void:
 		Globals.Skill_Points-=1
 		Globals.Strength+=1
 		strength.value=strength.value+10
-	skillpoints.text="points:"+str(Globals.Skill_Points)
+	skillpoints.text="Points: "+str(Globals.Skill_Points) + "   "
 	$AudioStreamPlayer.play()
 
 
@@ -35,7 +35,7 @@ func _on_speed_b_pressed() -> void:
 		Globals.Skill_Points-=1
 		Globals.Speed+=1
 		speed.value=speed.value+10
-	skillpoints.text="points:"+str(Globals.Skill_Points)
+	skillpoints.text="Points: "+str(Globals.Skill_Points) + "   "
 	$AudioStreamPlayer.play()
 
 
@@ -44,7 +44,7 @@ func _on_potions_b_pressed() -> void:
 		Globals.Skill_Points-=1
 		Globals.Potions+=1
 		potions.value=potions.value+10
-	skillpoints.text="points:"+str(Globals.Skill_Points)
+	skillpoints.text="Points: "+str(Globals.Skill_Points) + "   "
 	$AudioStreamPlayer.play()
 	
 	
