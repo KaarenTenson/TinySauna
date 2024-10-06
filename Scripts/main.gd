@@ -124,7 +124,6 @@ func _input(event):
 			var key_name = event.as_text()  # Get the human-readable key name
 			if(key_name=="Escape"):
 				get_tree().paused = !get_tree().paused
-				$Panel.visible=true
 			#vaatab, kas vajutatud klahv on ekraanil
 			if (first):
 				for node in visible_keys:

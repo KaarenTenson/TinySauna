@@ -23,7 +23,6 @@ var hp=100:
 			On_HpChanged.emit(value)
 			On_Hp0.emit()
 		else:
-			print("kaotasin elu")
 			On_HpChanged.emit(value)
 			hp=value
 		
@@ -63,6 +62,7 @@ func reset_Score():
 	Score=0
 	Score_Multiplier=0
 	combo=0
+	hp=100
 func Get_Skill_Points():
 	if(Score<1000):
 		Skill_Points+=2
