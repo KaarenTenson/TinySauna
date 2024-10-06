@@ -3,7 +3,12 @@ var Strength=1
 var Speed=1
 var Potions=1
 var Skill_Points=5
-var ChosenBeebi
+
+signal On_Babychanged
+var ChosenBeebi="TaekWonDooBeebi":
+	set(value):
+		On_Babychanged.emit(value)
+		ChosenBeebi=value
 var Score=0
 var Score_Multiplier=1
 var Enemy_Hp=100
@@ -11,7 +16,6 @@ var combo = 0
 signal On_Hp0
 signal On_HpChanged
 
-@onready var anim = $Crowd/crowd_hype
 
 var hp=100:
 	set(value):
@@ -51,7 +55,8 @@ func Get_Key_Delete() -> float:
 	return sqrt(Speed)*1/(sqrt(Score_Multiplier))
 func Get_Regen() -> float:
 	return 0.01*Potions
-
+func Get_MoveSpeed() -> float:
+	return Globals.Speed*(Globals.Score_Multiplier+combo)
 func get_combo() -> int:
 	return combo
 

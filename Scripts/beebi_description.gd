@@ -4,19 +4,14 @@ var beebi_coolnames = {"jijitsuBeebi": "res://Assets/CoolNames/jiu-jitsu-baby.pn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$BeebiName.texture = load(beebi_coolnames[Globals.ChosenBeebi])
+	$BeebiDescription.text = beebi_descriptions[Globals.ChosenBeebi]
+	Globals.On_Babychanged.connect(ChangeBaby)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_vasak_pressed() -> void:
-	$BeebiName.texture = load(beebi_coolnames[Globals.ChosenBeebi])
-	$BeebiDescription.text = beebi_descriptions[Globals.ChosenBeebi]
-
-
-
-func _on_parem_pressed() -> void:
-	$BeebiName.texture = load(beebi_coolnames[Globals.ChosenBeebi])
-	$BeebiDescription.text = beebi_descriptions[Globals.ChosenBeebi]
+func ChangeBaby(value):
+	$BeebiName.texture = load(beebi_coolnames[value])
+	$BeebiDescription.text = beebi_descriptions[value]

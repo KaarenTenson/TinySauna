@@ -18,15 +18,22 @@ var target_key=preload("res://Scenes/Keys.tscn")
 
 var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
 var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
-
+var valikud={"jijitsuBeebi":"res://Assets/Beebid/es.png","KungFuBeebi":"res://Assets/Beebid/ko.png","TaekWonDooBeebi":"res://Assets/Beebid/ne.png",
+"KarateBeebi":"res://Assets/Beebid/te.png"}
 var fades_factory
 var explosions_factory
 @onready var score: Label = $Score
 @onready var multi_plier: Label = $MultiPlier
-@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var texture_progress_bar: TextureProgressBar =$Control/Beebi/TextureProgressBar
 @onready var crowd_anim = $Crowd/crowd_hype
 @onready var boom_sound = $Random_Boom
 @onready var music = $Main_Soundtrack
+@onready var combo_effect: CPUParticles2D = $Mountain/combo_effect
+@onready var beebi_texture: TextureRect = $Control/Beebi/BeebiTexture
+@onready var beebi: VBoxContainer = $Control/Beebi
+@onready var animation_player: AnimationPlayer = $Control/Beebi/AnimationPlayer
+
+
 
 # key on screen timer
 @onready var timer = $Gameplay_Timers/hold_wait
@@ -43,9 +50,9 @@ var target_key_factory
 #popupid, mis on ekraanil
 var visible_keys=[]
 #mitme sekundi tagant havitatkse popup
-var havita_vahe=2
+@export var havita_vahe=2
 #mitme sekundi tagant tehakse 
-var tee_vahe=2
+@export var tee_vahe=0.5
 #jalgib, kas saab teha popupe või hävitada neid
 var timer_havita=0
 var timer_tee=0
@@ -78,6 +85,7 @@ func kaotus():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	beebi_texture.texture=load(valikud[Globals.ChosenBeebi])
 	Globals.On_Hp0.connect(kaotus)
 	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
 	set_process_input(true)
@@ -104,11 +112,13 @@ func _input(event):
 			if (first):
 				for node in visible_keys:
 					if !is_instance_valid(node):
-						visible_keys.erase(node)
+						visible_keys.remove_at(visible_keys.find(node))
+						visible_keys.sort()
 					elif (node.get_node("Label").text == key_name):
 						#klahv on olemas, suurendab skoori ja selle multiplierit
 						Globals.Add_Score()
 						Globals.Inc_Multiplier()
+						animation_player.play("look")
 						# havitab vajutatud klahvi masiivist 
 						visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
 						var tempobj=(teepopup(mangiv.pop_back()))
@@ -139,6 +149,7 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	combo_checker()
+	beebi.position.x+=Globals.Get_MoveSpeed()*delta
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
 	#holdi jaoks, suht palju peab veel panema 
@@ -221,6 +232,7 @@ func next_hold_keys():
 
 #teeb popup haitab ennast enda skriptis kui piisavalt aega on möödas
 func teepopup(taht) -> TextureRect:
+	
 	var uus = target_key_factory.duplicate()
 	var vanem = self
 	var random_x = randf_range((vanem.position.x+vanem.size.x*0.2), (vanem.position.x + vanem.size.x)*0.8)  # Adjust range as needed
@@ -230,9 +242,24 @@ func teepopup(taht) -> TextureRect:
 	uus.timer = havita_vahe
 	uus.get_node("Label").text = taht
 	# Set the new random position to the cloned node
-	uus.position = Vector2(random_x, random_y)
+	var pos = Vector2(random_x, random_y)
+	var i=0
+	while i<visible_keys.size():
+		if(i>=visible_keys.size()):
+			break
+		if(!is_instance_valid(visible_keys[i])):
+			visible_keys.remove_at(i)
+			i+=1
+			continue
+		if(pos.x>visible_keys[i].position.x-suurus and pos.x<visible_keys[i].position.x+2*suurus and pos.y>visible_keys[i].position.y-suurus and pos.y<visible_keys[i].position.y+2*suurus):
+			random_x = randf_range((vanem.position.x+vanem.size.x*0.2), (vanem.position.x + vanem.size.x)*0.8)  # Adjust range as needed
+			random_y = randf_range((vanem.position.y+vanem.size.y*0.2), (vanem.position.y + vanem.size.y)*0.8) 
+			pos = Vector2(random_x, random_y)
+			i=0
+		i+=1
+			
 	uus.Removed.connect(Effect)
-	
+	uus.position=pos
 	# Add the new node to the scene as a child of the parent
 	vanem.add_child(uus)
 	return uus
@@ -240,16 +267,9 @@ func teepopup(taht) -> TextureRect:
 #particle effektide lisamine, kui popup havitatkse
 func Effect(Tposition):
 	var explosion_temp: Node2D=explosions_factory.duplicate()
-	var fade_temp: Node2D=fades_factory.duplicate()
-	add_child(fade_temp)
 	add_child(explosion_temp)
-	fade_temp.set_position(Tposition)
 	explosion_temp.set_position(Tposition)
-	var emitter=fade_temp.get_children()[randi() % 4]
 	var emitter2=explosion_temp.get_children()[randi() % 4]
-	emitter.scale *= 60  # Scale the whole particle system
-	emitter.amount *= 60  # Increase the number of particles
-	#emitter.emitting=true
 	emitter2.scale *= 10  # Scale the whole particle system
 	emitter2.scale_amount_min=0.5
 	emitter2.scale_amount_max=1
@@ -261,6 +281,12 @@ func Effect(Tposition):
 # ramps up crowd animation speed according to combo
 func combo_checker():
 	var current_combo = Globals.get_combo()
+	if(current_combo>5):
+		combo_effect.visible=true
+
+		
+	if(current_combo<4):
+		combo_effect.visible=false
 	anim_speed = current_combo / 5
 	if (anim_speed <= 6):
 		crowd_anim.speed_scale = anim_speed

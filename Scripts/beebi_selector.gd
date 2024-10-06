@@ -10,8 +10,7 @@ var valikud=[{"jijitsuBeebi":"res://Assets/Beebid/es.png"},{"KungFuBeebi":"res:/
 var indeks=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Globals.ChosenBeebi=valikud[1].keys()[0]
-	beebi.texture= load(valikud[1].values()[0])
+	beebi.texture= load(valikud[2].values()[0])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
