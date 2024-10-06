@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://6xrtjph4t7dr"]
+[gd_scene load_steps=15 format=3 uid="uid://6xrtjph4t7dr"]
 
 [ext_resource type="Texture2D" uid="uid://citc7qyyrxtjj" path="res://Assets/background/intro_taust.png" id="1_1ws8t"]
 [ext_resource type="Texture2D" uid="uid://c54lc2aa2blfn" path="res://Assets/Beebid/es.png" id="1_6xsnk"]
+[ext_resource type="Script" path="res://intro.gd" id="1_hevyx"]
 [ext_resource type="Texture2D" uid="uid://cwgxcl0cwimv7" path="res://Assets/Beebid/ko.png" id="2_mdoet"]
 [ext_resource type="Texture2D" uid="uid://2y72kw5fmaqb" path="res://Assets/Beebid/ne.png" id="3_nn1ue"]
 [ext_resource type="Texture2D" uid="uid://dbtbp6d1vo7ls" path="res://Assets/Beebid/te.png" id="4_b5ou5"]
 [ext_resource type="Texture2D" uid="uid://cmpl0k88n0v7r" path="res://Assets/Beebid/volur.png" id="5_85lo6"]
+[ext_resource type="Texture2D" uid="uid://bx67evtt8atpq" path="res://Assets/Buttons/Next/B_Next1.png" id="7_yujw0"]
+[ext_resource type="AudioStream" uid="uid://umvo800jvywd" path="res://Music/Intro (loopable).mp3" id="9_qjoy0"]
 
 [sub_resource type="Animation" id="Animation_0wye5"]
 length = 0.001
@@ -177,10 +180,22 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(1178, 50)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("next:visibility_layer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_g485h"]
 resource_name = "new_animation"
-length = 6.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -188,7 +203,7 @@ tracks/0/path = NodePath("Beebi1:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(300, 300), Vector2(150, 150)]
@@ -200,7 +215,7 @@ tracks/1/path = NodePath("Beebi1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-40, 232), Vector2(150, 400)]
@@ -212,7 +227,7 @@ tracks/2/path = NodePath("Beebi4:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(300, 300), Vector2(150, 150)]
@@ -224,7 +239,7 @@ tracks/3/path = NodePath("Beebi2:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(300, 300), Vector2(150, 150)]
@@ -236,7 +251,7 @@ tracks/4/path = NodePath("Beebi3:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(300, 300), Vector2(150, 150)]
@@ -248,7 +263,7 @@ tracks/5/path = NodePath("Beebi4:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(816, 240), Vector2(912, 400)]
@@ -260,7 +275,7 @@ tracks/6/path = NodePath("Beebi2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(184, 152), Vector2(272, 256)]
@@ -272,7 +287,7 @@ tracks/7/path = NodePath("Beebi3:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(2.86667, 3.9),
+"times": PackedFloat32Array(4.43333, 5.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(600, 160), Vector2(744, 256)]
@@ -284,7 +299,7 @@ tracks/8/path = NodePath("volur:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.86667, 2.66667, 4.03333, 5.36667),
+"times": PackedFloat32Array(3.46667, 4.26667, 5.36667, 6.03333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1176, 208), Vector2(496, 192), Vector2(496, 192), Vector2(-200, 192)]
@@ -296,7 +311,7 @@ tracks/9/path = NodePath("tekst1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1181, 50), Vector2(71, 50)]
@@ -308,7 +323,7 @@ tracks/10/path = NodePath("tekst1:visibility_layer")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 1.66667),
+"times": PackedFloat32Array(0, 3.43333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
@@ -320,7 +335,7 @@ tracks/11/path = NodePath("tekst2:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(1.63333, 3.03333),
+"times": PackedFloat32Array(3.7, 4.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1178, 50), Vector2(76, 50)]
@@ -332,7 +347,7 @@ tracks/12/path = NodePath("tekst2:visibility_layer")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 3.93333),
+"times": PackedFloat32Array(0, 6.76667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
@@ -344,10 +359,22 @@ tracks/13/path = NodePath("tekst3:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(3.96667, 4.56667),
+"times": PackedFloat32Array(7.1, 7.36667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1178, 50), Vector2(44, 37)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("next:visibility_layer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 7.43333, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_ir17k"]
@@ -387,6 +414,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_hevyx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -486,8 +514,8 @@ offset_left = 1168.0
 offset_top = 96.0
 offset_right = 2112.0
 offset_bottom = 197.0
-text = "Four martial arts masters
-the most powerful warriors of our modern age. "
+text = "4 masters of martial arts
+the most powerful warriors known to mankind"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst2" type="Label" parent="."]
@@ -496,8 +524,8 @@ offset_left = 1261.0
 offset_top = 431.0
 offset_right = 4210.0
 offset_bottom = 532.0
-text = "The mad wizard Jarkko felt threatened
-and turned the four masters into small, pitiful babies."
+text = "The mad wizard Jarkko got scared
+and turned the masters into little babies"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst3" type="Label" parent="."]
@@ -511,3 +539,19 @@ the four masters of kung fu, karate,
 taekwondo and jiu-jitsu set out to face the wizard,
 in hopes of returning to their former selves."
 label_settings = SubResource("LabelSettings_f8np6")
+
+[node name="next" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 462.0
+offset_top = 433.0
+offset_right = 698.0
+offset_bottom = 653.0
+icon = ExtResource("7_yujw0")
+flat = true
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qjoy0")
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
