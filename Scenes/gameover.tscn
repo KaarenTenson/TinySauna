@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dixt7wfyefoin"]
+[gd_scene load_steps=7 format=3 uid="uid://dixt7wfyefoin"]
 
 [ext_resource type="Script" path="res://Scripts/gameover.gd" id="1_m1cwx"]
 [ext_resource type="Texture2D" uid="uid://b1d4h24vjwylq" path="res://Assets/GAME OVER.png" id="2_ljgj8"]
@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://cc4k8vwd0nwq3" path="res://SFX/gameover.mp3" id="4_bwhqs"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cl7aj"]
+
+[sub_resource type="SystemFont" id="SystemFont_gl6bo"]
+font_names = PackedStringArray("Comic Sans MS")
 
 [node name="Gameover" type="Node2D"]
 script = ExtResource("1_m1cwx")
@@ -31,7 +34,24 @@ offset_right = 997.0
 offset_bottom = 282.0
 texture = ExtResource("2_ljgj8")
 
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.469
+anchor_top = 0.482
+anchor_right = 0.469
+anchor_bottom = 0.482
+offset_left = -42.013
+offset_top = -40.084
+offset_right = 72.987
+offset_bottom = 30.916
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_gl6bo")
+theme_override_font_sizes/font_size = 50
+
 [node name="Button" type="Button" parent="TextureRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 407.0
 offset_top = 327.0

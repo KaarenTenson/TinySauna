@@ -2,6 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$TextureRect/Label.text="Score: "+str(Globals.Score)
 	Globals.Get_Skill_Points()
 	Globals.reset_Score()
 	$AudioStreamPlayer2D.play()

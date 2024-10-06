@@ -89,6 +89,9 @@ var timeout = false
 # did the hold_down_wait timer run out
 var timeout_held = false
 
+@onready var texture_rect: TextureRect = $TextureRect
+var comboui=true
+
 func kaotus():
 	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
 func voit():
@@ -309,12 +312,16 @@ func combo_checker():
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
+			texture_rect.visible=true
+			comboui=false
 			
 		else:
 			bombtimer-=get_process_delta_time()
 		combo_effect.visible=true
 		
 	if(current_combo<4):
+		texture_rect.visible=false
+		comboui=true
 		combo_stream_player_2d.stop()
 		bombtimer=0
 		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
