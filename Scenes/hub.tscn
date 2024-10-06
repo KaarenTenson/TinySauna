@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=32 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://c53egabqmcsas" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -16,10 +16,13 @@
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
 [ext_resource type="PackedScene" uid="uid://dgcaoloy6rr68" path="res://Scenes/pause.tscn" id="12_ahsgy"]
 [ext_resource type="Texture2D" uid="uid://ct2nhr1og52ym" path="res://Assets/Beebid/võlujook.png" id="13_b4wlw"]
+[ext_resource type="Script" path="res://Scenes/control_2.gd" id="14_0vvlq"]
 [ext_resource type="Texture2D" uid="uid://dn6qwax63rrtc" path="res://Assets/Buttons/Menu/C_Menu1.png" id="14_ctv7e"]
 [ext_resource type="Texture2D" uid="uid://pyc3wk3ti2x7" path="res://Assets/Beebid/arrow.png" id="15_1plcc"]
+[ext_resource type="Texture2D" uid="uid://b1e75pik4rppg" path="res://Assets/background/ristkulik2.png" id="16_m7q54"]
 [ext_resource type="Texture2D" uid="uid://dyypv6jwo8m4y" path="res://Assets/Beebid/arrow_reverse.png" id="16_nfrpa"]
 [ext_resource type="Texture2D" uid="uid://co7dguyx4a2td" path="res://Assets/Buttons/Play/A_Play1.png" id="18_33cfn"]
+[ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="23_nlk6w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -53,6 +56,10 @@ font = ExtResource("6_fckmr")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_2fypq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekprj"]
+font = ExtResource("6_fckmr")
+font_color = Color(0, 0, 0, 1)
 
 [node name="HUB" type="Control"]
 layout_mode = 3
@@ -104,9 +111,9 @@ anchor_top = 0.638
 anchor_right = 0.543
 anchor_bottom = 0.638
 offset_left = -161.426
-offset_top = -72.436
-offset_right = 174.574
-offset_bottom = 85.564
+offset_top = -95.436
+offset_right = 136.574
+offset_bottom = 62.564
 scale = Vector2(0.960001, 1)
 theme_override_font_sizes/font_size = 10
 label_settings = SubResource("LabelSettings_iwqq0")
@@ -222,6 +229,7 @@ text = "+"
 [node name="Control2" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("14_0vvlq")
 
 [node name="Button" type="Button" parent="GridContainer/Control2"]
 texture_filter = 1
@@ -233,6 +241,26 @@ offset_bottom = 117.0
 icon = ExtResource("14_ctv7e")
 flat = true
 expand_icon = true
+
+[node name="ColorRect" type="TextureRect" parent="GridContainer/Control2"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 86.0
+offset_top = 140.0
+offset_right = 342.0
+offset_bottom = 240.0
+texture = ExtResource("16_m7q54")
+expand_mode = 1
+
+[node name="SkillDescription" type="Label" parent="GridContainer/Control2/ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 246.0
+offset_bottom = 95.0
+label_settings = SubResource("LabelSettings_ekprj")
+autowrap_mode = 3
 
 [node name="Beebi" type="TextureRect" parent="GridContainer"]
 texture_filter = 1
@@ -268,6 +296,11 @@ expand_icon = true
 layout_mode = 2
 theme_override_constants/separation = 30
 script = ExtResource("4_dtpdt")
+
+[node name="AnimatedSprite2D" parent="GridContainer/BeebiSelector" instance=ExtResource("23_nlk6w")]
+position = Vector2(-198, 144)
+scale = Vector2(9.90625, 9.55317)
+animation = &"taekwondo_dance"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GridContainer/BeebiSelector"]
 stream = ExtResource("9_q475y")
@@ -316,8 +349,14 @@ process_mode = 3
 visible = false
 layout_mode = 1
 
+[connection signal="mouse_entered" from="GridContainer/Skills/HBoxContainer" to="GridContainer/Control2" method="_on_h_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Skills/HBoxContainer" to="GridContainer/Control2" method="_on_h_box_container_mouse_exited"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer/StrengthB" to="GridContainer/Skills" method="_on_strength_b_pressed"]
+[connection signal="mouse_entered" from="GridContainer/Skills/HBoxContainer2" to="GridContainer/Control2" method="_on_h_box_container_2_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Skills/HBoxContainer2" to="GridContainer/Control2" method="_on_h_box_container_2_mouse_exited"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer2/SpeedB" to="GridContainer/Skills" method="_on_speed_b_pressed"]
+[connection signal="mouse_entered" from="GridContainer/Skills/HBoxContainer3" to="GridContainer/Control2" method="_on_h_box_container_3_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Skills/HBoxContainer3" to="GridContainer/Control2" method="_on_h_box_container_3_mouse_exited"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer3/PotionsB" to="GridContainer/Skills" method="_on_potions_b_pressed"]
 [connection signal="pressed" from="GridContainer/Control2/Button" to="GridContainer/Control" method="_on_button_pressed"]
 [connection signal="pressed" from="GridContainer/Beebi/parem" to="GridContainer/Control" method="_on_parem_pressed"]

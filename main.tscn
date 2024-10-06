@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
 [ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="8_n1iy3"]
 [ext_resource type="Script" path="res://volur.gd" id="9_id2nm"]
-[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
+[ext_resource type="PackedScene" uid="uid://cei7lg1yyrf55" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
@@ -285,10 +285,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -209.5
-offset_top = -116.0
-offset_right = 209.5
-offset_bottom = 116.0
+offset_left = -131.0
+offset_top = -323.0
+offset_right = 98.0
+offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("28_nort7")
+expand_mode = 1
