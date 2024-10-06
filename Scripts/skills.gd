@@ -46,3 +46,6 @@ func _on_potions_b_pressed() -> void:
 		potions.value=potions.value+10
 	skillpoints.text="points:"+str(Globals.Skill_Points)
 	$AudioStreamPlayer.play()
+	
+	
+	
