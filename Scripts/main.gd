@@ -300,7 +300,7 @@ func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
 		combo_effect.visible=true
-	if(current_combo> 7*(1/ sqrt(Globals.Strength))):
+	if(current_combo> 7*(sqrt(Globals.Strength))):
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
