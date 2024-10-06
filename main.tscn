@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=25 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3dtn345kwk0s" path="res://Assets/health_meter_under.png" id="6_ghnpt"]
 [ext_resource type="Texture2D" uid="uid://bueg1tkaehyx7" path="res://Assets/health_meter_progress.png" id="7_3ponr"]
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
+[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
@@ -179,11 +180,47 @@ texture_under = ExtResource("6_ghnpt")
 texture_over = ExtResource("7_lpv3m")
 texture_progress = ExtResource("7_3ponr")
 
+[node name="Hold_Keys_Controller" parent="." instance=ExtResource("9_qvmqw")]
+layout_mode = 1
+script = null
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dhsx3")
 
 [node name="pausemenu" parent="." instance=ExtResource("19_by70b")]
 process_mode = 3
 layout_mode = 1
+
+[node name="Gameplay_Timers" type="Node2D" parent="."]
+
+[node name="hold_wait" type="Timer" parent="Gameplay_Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="hold_down_wait" type="Timer" parent="Gameplay_Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Soundtrack_Timers" type="Node2D" parent="."]
+
+[node name="1st_Switch" type="Timer" parent="Soundtrack_Timers"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="2nd_Switch" type="Timer" parent="Soundtrack_Timers"]
+one_shot = true
+
+[node name="3rd_Switch" type="Timer" parent="Soundtrack_Timers"]
+one_shot = true
+
+[node name="4th_Switch" type="Timer" parent="Soundtrack_Timers"]
+one_shot = true
+
+[node name="5th_Switch" type="Timer" parent="Soundtrack_Timers"]
+one_shot = true
+
+[node name="6th_Switch" type="Timer" parent="Soundtrack_Timers"]
+one_shot = true
 
 [connection signal="pressed" from="Panel/Button" to="Panel" method="_on_button_pressed"]

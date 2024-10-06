@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dtp5r4yiiwin7"]
+
+[node name="Gameplay_Timers" type="Node2D"]
+
+[node name="hold_wait" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="hold_down_wait" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

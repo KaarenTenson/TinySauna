@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://cei7lg1yyrf55"]
+
+[ext_resource type="Script" path="res://Scripts/hold_keys_controller.gd" id="1_4xlbt"]
+[ext_resource type="Texture2D" uid="uid://d0ecis0skbaml" path="res://Assets/keys/blank_key/blank_key_main.png" id="1_o6jmc"]
+[ext_resource type="Texture2D" uid="uid://bhu1lwnm3b3mt" path="res://Assets/keys/blank_key/plus.png" id="2_bwt11"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_geabi"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="Hold_Keys_Controller" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -997.0
+offset_bottom = -597.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xlbt")
+
+[node name="first_key" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 2
+offset_bottom = 40.0
+texture = ExtResource("1_o6jmc")
+
+[node name="Label" type="Label" parent="first_key"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.472
+anchor_top = 0.47
+anchor_right = 0.472
+anchor_bottom = 0.47
+offset_left = -22.488
+offset_top = -20.5
+offset_right = 22.512
+offset_bottom = 20.5
+label_settings = SubResource("LabelSettings_geabi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="second_key" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 2
+offset_left = 100.0
+offset_right = 154.0
+offset_bottom = 50.0
+texture = ExtResource("1_o6jmc")
+
+[node name="Label" type="Label" parent="second_key"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.472
+anchor_top = 0.47
+anchor_right = 0.472
+anchor_bottom = 0.47
+offset_left = -22.488
+offset_top = -20.5
+offset_right = 22.512
+offset_bottom = 20.5
+label_settings = SubResource("LabelSettings_geabi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="plus" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 97.0
+offset_bottom = 45.0
+texture = ExtResource("2_bwt11")
+expand_mode = 1

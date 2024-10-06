@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hiugjamuxtal"]
+
+[node name="Soundtrack_Timers" type="Node2D"]
+
+[node name="1st_Switch" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="2nd_Switch" type="Timer" parent="."]
+one_shot = true
+
+[node name="3rd_Switch" type="Timer" parent="."]
+one_shot = true
+
+[node name="4th_Switch" type="Timer" parent="."]
+one_shot = true
+
+[node name="5th_Switch" type="Timer" parent="."]
+one_shot = true
+
+[node name="6th_Switch" type="Timer" parent="."]
+one_shot = true
