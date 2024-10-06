@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://di7lsddbs3an4"]
+[gd_scene load_steps=34 format=3 uid="uid://di7lsddbs3an4"]
 
 [ext_resource type="Texture2D" uid="uid://jmt0ov3x68iv" path="res://Assets/Beebid/es_dance.png" id="1_s6coe"]
 [ext_resource type="Texture2D" uid="uid://2srqtxe7dy11" path="res://Assets/Beebid/te_dance.png" id="2_mbeyu"]
 [ext_resource type="Texture2D" uid="uid://blsq5udyjuf7m" path="res://Assets/Beebid/ko_dance.png" id="3_lve1c"]
 [ext_resource type="Texture2D" uid="uid://uo7gwglgwji4" path="res://Assets/Beebid/ne_dance.png" id="4_7eut6"]
+[ext_resource type="Texture2D" uid="uid://hmsc4o33lsfx" path="res://Assets/Beebid/volur_dance.png" id="5_itcid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oses"]
 atlas = ExtResource("1_s6coe")
@@ -89,6 +90,30 @@ region = Rect2(0, 136, 32, 34)
 atlas = ExtResource("4_7eut6")
 region = Rect2(0, 170, 32, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnmlo"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fgbs"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41c1n"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs3ed"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t17gb"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndanv"]
+atlas = ExtResource("5_itcid")
+region = Rect2(0, 320, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mdvkl"]
 animations = [{
 "frames": [{
@@ -173,15 +198,38 @@ animations = [{
 "loop": true,
 "name": &"taekwondo_dance",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnmlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fgbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41c1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs3ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t17gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndanv")
+}],
+"loop": true,
+"name": &"wizard_dance",
+"speed": 6.0
 }]
 
 [node name="Tantsud" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, 18)
+position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_mdvkl")
-animation = &"kungfu_dance"
-frame_progress = 0.514062
+animation = &"wizard_dance"
+frame_progress = 0.837828
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
