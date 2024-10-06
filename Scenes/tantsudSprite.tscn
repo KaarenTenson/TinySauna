@@ -361,4 +361,4 @@ animations = [{
 texture_filter = 1
 position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_mdvkl")
-animation = &"wizard_idle"
+animation = &"kungfu_dance"
