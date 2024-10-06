@@ -213,8 +213,7 @@ func next_hold_keys():
 	var x = randf_range(105, 600)
 	var y = randf_range(60, 285)
 	hold_keys_controller.position = Vector2(x, y)
-	if (!hold_keys_controller.is_visible_in_tree()):
-		hold_keys_controller.visible = true
+	hold_keys_controller.visible = true
 
 #teeb popup haitab ennast enda skriptis kui piisavalt aega on möödas
 func teepopup(taht) -> TextureRect:
