@@ -47,6 +47,21 @@ grow_vertical = 2
 texture = ExtResource("2_4233a")
 expand_mode = 1
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.518
+anchor_right = 0.278
+anchor_bottom = 0.518
+offset_left = -217.256
+offset_top = -325.664
+offset_right = 216.744
+offset_bottom = 369.336
+texture = ExtResource("12_wjgpq")
+flip_h = true
+
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -194,21 +209,6 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.278
-anchor_top = 0.518
-anchor_right = 0.278
-anchor_bottom = 0.518
-offset_left = -217.256
-offset_top = -325.664
-offset_right = 216.744
-offset_bottom = 369.336
-texture = ExtResource("12_wjgpq")
-flip_h = true
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]

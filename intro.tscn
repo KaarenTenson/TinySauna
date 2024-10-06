@@ -440,10 +440,10 @@ anchor_left = 0.07
 anchor_top = 0.5
 anchor_right = 0.078
 anchor_bottom = 0.5
-offset_left = -79.64
-offset_top = -115.0
-offset_right = 297.144
-offset_bottom = 284.0
+offset_left = 69.36
+offset_top = 76.0
+offset_right = 210.144
+offset_bottom = 226.0
 texture = ExtResource("1_6xsnk")
 expand_mode = 1
 stretch_mode = 4
@@ -456,10 +456,10 @@ anchor_left = 0.29
 anchor_top = 0.5
 anchor_right = 0.29
 anchor_bottom = 0.5
-offset_left = -102.08
-offset_top = -52.0
-offset_right = 289.92
-offset_bottom = 370.0
+offset_left = -62.08
+offset_top = -68.0
+offset_right = 87.92
+offset_bottom = 82.0
 texture = ExtResource("2_mdoet")
 stretch_mode = 4
 
@@ -471,10 +471,10 @@ anchor_left = 0.651
 anchor_top = 0.478
 anchor_right = 0.651
 anchor_bottom = 0.478
-offset_left = -149.952
-offset_top = -149.744
-offset_right = 236.048
-offset_bottom = 249.256
+offset_left = -5.95203
+offset_top = -53.744
+offset_right = 144.048
+offset_bottom = 96.256
 texture = ExtResource("3_nn1ue")
 stretch_mode = 4
 
@@ -486,10 +486,10 @@ anchor_left = 0.977
 anchor_top = 0.536
 anchor_right = 0.977
 anchor_bottom = 0.536
-offset_left = 50.496
-offset_top = -139.328
-offset_right = 254.496
-offset_bottom = 238.672
+offset_left = -1325.5
+offset_top = -155.328
+offset_right = -1121.5
+offset_bottom = 222.672
 texture = ExtResource("5_85lo6")
 stretch_mode = 4
 
@@ -501,39 +501,39 @@ anchor_left = 0.839
 anchor_top = 0.602
 anchor_right = 0.839
 anchor_bottom = 0.602
-offset_left = -139.528
-offset_top = -149.096
-offset_right = 266.472
-offset_bottom = 228.904
+offset_left = -54.528
+offset_top = 9.90399
+offset_right = 95.472
+offset_bottom = 159.904
 texture = ExtResource("4_b5ou5")
 stretch_mode = 4
 
 [node name="tekst1" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1168.0
-offset_top = 96.0
-offset_right = 2112.0
-offset_bottom = 197.0
+offset_left = 71.0
+offset_top = 50.0
+offset_right = 1015.0
+offset_bottom = 151.0
 text = "4 masters of martial arts
 the most powerful warriors known to mankind"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1261.0
-offset_top = 431.0
-offset_right = 4210.0
-offset_bottom = 532.0
+offset_left = 76.0
+offset_top = 50.0
+offset_right = 3025.0
+offset_bottom = 151.0
 text = "The mad wizard Jarkko got scared
 and turned the masters into little babies"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1178.0
-offset_top = 50.0
-offset_right = 2063.0
-offset_bottom = 255.0
+offset_left = 44.0
+offset_top = 37.0
+offset_right = 929.0
+offset_bottom = 242.0
 text = "Being discontent with their young selves,
 the four masters of kung fu, karate,
 taekwondo and jiu-jitsu set out to face the wizard,
