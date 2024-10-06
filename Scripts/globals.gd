@@ -65,8 +65,8 @@ func reset_Score():
 	hp=100
 func Get_Skill_Points():
 	Skill_Points+=1
-	if(Score > 1000):
-		Skill_Points+= floor(sqrt(Score))
+	if(Score > 500):
+		Skill_Points+= floor(sqrt(Score)/10)
 func reset_skills():
 	Speed=1
 	Strength=1
