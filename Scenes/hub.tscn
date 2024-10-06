@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://vukhimfnrvt5" path="res://Assets/background/sauna_bg.png" id="4_igw5r"]
 [ext_resource type="Script" path="res://Scripts/beebi_description.gd" id="5_r14wf"]
 [ext_resource type="FontFile" uid="uid://brhjjdthqwf86" path="res://Assets/fonts/minicode-8x16.otf" id="6_fckmr"]
+[ext_resource type="Texture2D" uid="uid://b3aurv8qbxrrp" path="res://Assets/Beebid/muskel.png" id="9_0x46t"]
+[ext_resource type="Texture2D" uid="uid://btabgr83x2fc5" path="res://Assets/Beebid/kiirus.png" id="9_lumec"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="9_q475y"]
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
 [ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="12_ahsgy"]
+[ext_resource type="Texture2D" uid="uid://ct2nhr1og52ym" path="res://Assets/Beebid/võlujook.png" id="13_b4wlw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -46,15 +49,6 @@ font = ExtResource("6_fckmr")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_frfwr"]
-font = ExtResource("6_fckmr")
-
-[sub_resource type="LabelSettings" id="LabelSettings_02en7"]
-font = ExtResource("6_fckmr")
-
-[sub_resource type="LabelSettings" id="LabelSettings_cuyvv"]
-font = ExtResource("6_fckmr")
-
-[sub_resource type="LabelSettings" id="LabelSettings_mubr7"]
 font = ExtResource("6_fckmr")
 
 [node name="HUB" type="Control"]
@@ -136,12 +130,11 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="StrengthL" type="Label" parent="GridContainer/Skills/HBoxContainer"]
+[node name="tugevus" type="TextureRect" parent="GridContainer/Skills/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
-text = "Strength: "
-label_settings = SubResource("LabelSettings_02en7")
+texture = ExtResource("9_0x46t")
+expand_mode = 2
 
 [node name="Strength" type="TextureProgressBar" parent="GridContainer/Skills/HBoxContainer"]
 texture_filter = 1
@@ -163,12 +156,11 @@ text = "+"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Speedl" type="Label" parent="GridContainer/Skills/HBoxContainer2"]
+[node name="kiirus" type="TextureRect" parent="GridContainer/Skills/HBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
-text = "Speed: "
-label_settings = SubResource("LabelSettings_cuyvv")
+texture = ExtResource("9_lumec")
+expand_mode = 2
 
 [node name="Speed" type="TextureProgressBar" parent="GridContainer/Skills/HBoxContainer2"]
 texture_filter = 1
@@ -190,14 +182,11 @@ text = "+"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="GridContainer/Skills/HBoxContainer3"]
+[node name="v6lujook" type="TextureRect" parent="GridContainer/Skills/HBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.8
-text = "Potion: "
-label_settings = SubResource("LabelSettings_mubr7")
-vertical_alignment = 1
+texture = ExtResource("13_b4wlw")
+expand_mode = 2
 
 [node name="Potions" type="TextureProgressBar" parent="GridContainer/Skills/HBoxContainer3"]
 texture_filter = 1
