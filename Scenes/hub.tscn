@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dg0x01olbffd"]
+[gd_scene load_steps=19 format=3 uid="uid://dg0x01olbffd"]
 
 [ext_resource type="Texture2D" uid="uid://cs63otx5vke6v" path="res://Assets/Buttons/A Buttons Small1.png" id="1_02q81"]
 [ext_resource type="Script" path="res://Scripts/skills.gd" id="1_tqliu"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/beebi_description.gd" id="5_r14wf"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="9_q475y"]
 [ext_resource type="AudioStream" uid="uid://dphl1ftpvbpct" path="res://Music/Warm room (loopable).mp3" id="10_0x86r"]
-[ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="12_g8dld"]
+[ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="12_ahsgy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd38q"]
 
@@ -39,6 +39,9 @@ Button/styles/pressed = SubResource("StyleBoxTexture_131dr")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0.0117647, 0, 0, 1)
 Label/font_sizes/font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwqq0"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="HUB" type="Control"]
 layout_mode = 3
@@ -72,26 +75,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("5_r14wf")
 
-[node name="BeebiName" type="Label" parent="GridContainer/Control"]
-visible = false
+[node name="BeebiName" type="TextureRect" parent="GridContainer/Control"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 65.0
-offset_right = 363.0
-offset_bottom = 107.0
-text = "BeebiName"
+offset_left = 36.0
+offset_top = 68.0
+offset_right = 368.0
+offset_bottom = 119.0
+expand_mode = 2
 
 [node name="BeebiDescription" type="Label" parent="GridContainer/Control"]
-visible = false
-layout_mode = 0
-offset_left = 44.0
-offset_top = 116.0
-offset_right = 345.0
-offset_bottom = 292.0
-text = "asdasfsafasdfsdafsdaf
-asdfasdfsdfsdfafdasfsa
-asdfasdfsdafsdafsdf
-asdfasfasdfsda"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149
+anchor_top = 0.503
+anchor_right = 0.149
+anchor_bottom = 0.503
+offset_left = -6.918
+offset_top = -2.966
+offset_right = 305.082
+offset_bottom = 139.034
+label_settings = SubResource("LabelSettings_iwqq0")
+autowrap_mode = 3
 
 [node name="Skills" type="VBoxContainer" parent="GridContainer"]
 layout_mode = 2
@@ -256,10 +260,9 @@ offset_top = -299.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Control" parent="." instance=ExtResource("12_ahsgy")]
 process_mode = 3
-
-[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("12_g8dld")]
+layout_mode = 1
 
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer/StrengthB" to="GridContainer/Skills" method="_on_strength_b_pressed"]
 [connection signal="pressed" from="GridContainer/Skills/HBoxContainer2/SpeedB" to="GridContainer/Skills" method="_on_speed_b_pressed"]
