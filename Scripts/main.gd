@@ -33,6 +33,7 @@ var explosions_factory
 @onready var beebi: VBoxContainer = $Control/Beebi
 @onready var volur: Control = $volur
 @onready var main_soundtrack: AudioStreamPlayer2D = $Main_Soundtrack
+@onready var combo_stream_player_2d: AudioStreamPlayer2D = $ComboStreamPlayer2D
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $Control/Beebi/Control/AnimatedSprite2D
@@ -301,16 +302,20 @@ func combo_checker():
 	var current_combo = Globals.get_combo()
 	if(current_combo>5):
 		combo_effect.visible=true
+		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][0])
+		if!(combo_stream_player_2d.playing):
+			combo_stream_player_2d.play()
 	if(current_combo> 7*(sqrt(Globals.Strength))):
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
-			animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][0])
+			
 		else:
 			bombtimer-=get_process_delta_time()
 		combo_effect.visible=true
 		
 	if(current_combo<4):
+		combo_stream_player_2d.stop()
 		bombtimer=0
 		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 		combo_effect.color=Color.PURPLE

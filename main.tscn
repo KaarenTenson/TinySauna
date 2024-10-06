@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=35 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -22,6 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://dgcaoloy6rr68" path="res://Scenes/pause.tscn" id="19_by70b"]
 [ext_resource type="AudioStream" uid="uid://c7kraxunm0sel" path="res://SFX/boom/boom15.wav" id="19_lfwsb"]
 [ext_resource type="AudioStream" uid="uid://bdr75r5ce17gy" path="res://Music/Baby Dance.mp3" id="20_g0k6x"]
+[ext_resource type="AudioStream" uid="uid://daij085h0pd7l" path="res://SFX/awesome_combo3.mp3" id="23_rlb72"]
+[ext_resource type="AudioStream" uid="uid://wn6pg07udby1" path="res://SFX/combo1.wav" id="24_wevmt"]
+[ext_resource type="AudioStream" uid="uid://cbt74b04jjsgp" path="res://SFX/combo2.wav" id="25_a40te"]
+[ext_resource type="AudioStream" uid="uid://c1q7j5mfrnvcf" path="res://SFX/combo3.wav" id="26_ns6x2"]
+[ext_resource type="AudioStream" uid="uid://mvjy58ruwx1j" path="res://SFX/combo5.wav" id="27_5s5ss"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
 blend_mode = 1
@@ -68,6 +73,14 @@ stream_6/stream = ExtResource("16_dpvpi")
 stream_7/stream = ExtResource("17_e1tym")
 stream_8/stream = ExtResource("18_a5gtp")
 stream_9/stream = ExtResource("19_lfwsb")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0set8"]
+streams_count = 6
+stream_0/stream = ExtResource("23_rlb72")
+stream_2/stream = ExtResource("24_wevmt")
+stream_3/stream = ExtResource("25_a40te")
+stream_4/stream = ExtResource("26_ns6x2")
+stream_5/stream = ExtResource("27_5s5ss")
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -222,6 +235,9 @@ stream = SubResource("AudioStreamRandomizer_dhsx3")
 
 [node name="Main_Soundtrack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g0k6x")
+
+[node name="ComboStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0set8")
 
 [node name="pausemenu" parent="." instance=ExtResource("19_by70b")]
 process_mode = 3
