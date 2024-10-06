@@ -28,6 +28,7 @@ func _on_h_box_container_2_mouse_entered() -> void:
 
 func _on_h_box_container_2_mouse_exited() -> void:
 	$ColorRect.visible = false
+	
 	$ColorRect/SkillDescription.text = ""
 
 
