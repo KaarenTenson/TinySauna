@@ -559,12 +559,13 @@ label_settings = SubResource("LabelSettings_f8np6")
 layout_mode = 0
 offset_left = 1178.0
 offset_top = 50.0
-offset_right = 2368.0
-offset_bottom = 255.0
+offset_right = 2508.0
+offset_bottom = 297.0
 text = "Being discontent with their young selves,
 the four masters of kung fu, karate,
-taekwondo and jiu-jitsu set out to face the wizard,
-in hopes of returning to their former selves."
+taekwondo and jiu-jitsu set out to face
+the wizard, in hopes of returning
+to their former selves."
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="next" type="Button" parent="."]
