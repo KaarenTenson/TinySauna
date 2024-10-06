@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjyftce8i3odb"]
+
+[ext_resource type="VideoStream" path="res://Saunavennad intro.ogv" id="1_yc0gf"]
+[ext_resource type="Script" path="res://Scripts/Saunavennad.gd" id="2_4iciv"]
+
+[node name="Saunavennad" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("1_yc0gf")
+autoplay = true
+script = ExtResource("2_4iciv")
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
