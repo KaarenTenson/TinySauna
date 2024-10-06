@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6xrtjph4t7dr"]
+[gd_scene load_steps=16 format=3 uid="uid://6xrtjph4t7dr"]
 
 [ext_resource type="Texture2D" uid="uid://citc7qyyrxtjj" path="res://Assets/background/intro_taust.png" id="1_1ws8t"]
 [ext_resource type="Texture2D" uid="uid://c54lc2aa2blfn" path="res://Assets/Beebid/es.png" id="1_6xsnk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cmpl0k88n0v7r" path="res://Assets/Beebid/volur.png" id="5_85lo6"]
 [ext_resource type="Texture2D" uid="uid://bx67evtt8atpq" path="res://Assets/Buttons/Next/B_Next1.png" id="7_yujw0"]
 [ext_resource type="AudioStream" uid="uid://umvo800jvywd" path="res://Music/Intro (loopable).mp3" id="9_qjoy0"]
+[ext_resource type="Texture2D" uid="uid://dga6of748pgse" path="res://Assets/Buttons/No/B_No1.png" id="10_bbn4b"]
 
 [sub_resource type="Animation" id="Animation_0wye5"]
 length = 0.001
@@ -183,7 +184,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("next:visibility_layer")
+tracks/14/path = NodePath("skip:visibility_layer")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -191,6 +192,18 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("next:visibility_layer")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_g485h"]
@@ -367,14 +380,26 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("next:visibility_layer")
+tracks/14/path = NodePath("skip:visibility_layer")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0, 7.43333, 7.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 7.46667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 0, 1]
+"values": [1, 0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("next:visibility_layer")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0333333, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_ir17k"]
@@ -440,10 +465,10 @@ anchor_left = 0.07
 anchor_top = 0.5
 anchor_right = 0.078
 anchor_bottom = 0.5
-offset_left = 69.36
-offset_top = 76.0
-offset_right = 210.144
-offset_bottom = 226.0
+offset_left = -79.64
+offset_top = -115.0
+offset_right = 297.144
+offset_bottom = 284.0
 texture = ExtResource("1_6xsnk")
 expand_mode = 1
 stretch_mode = 4
@@ -456,10 +481,10 @@ anchor_left = 0.29
 anchor_top = 0.5
 anchor_right = 0.29
 anchor_bottom = 0.5
-offset_left = -62.08
-offset_top = -68.0
-offset_right = 87.92
-offset_bottom = 82.0
+offset_left = -102.08
+offset_top = -52.0
+offset_right = 289.92
+offset_bottom = 370.0
 texture = ExtResource("2_mdoet")
 stretch_mode = 4
 
@@ -471,10 +496,10 @@ anchor_left = 0.651
 anchor_top = 0.478
 anchor_right = 0.651
 anchor_bottom = 0.478
-offset_left = -5.95203
-offset_top = -53.744
-offset_right = 144.048
-offset_bottom = 96.256
+offset_left = -149.952
+offset_top = -149.744
+offset_right = 236.048
+offset_bottom = 249.256
 texture = ExtResource("3_nn1ue")
 stretch_mode = 4
 
@@ -486,10 +511,10 @@ anchor_left = 0.977
 anchor_top = 0.536
 anchor_right = 0.977
 anchor_bottom = 0.536
-offset_left = -1325.5
-offset_top = -155.328
-offset_right = -1121.5
-offset_bottom = 222.672
+offset_left = 50.496
+offset_top = -139.328
+offset_right = 254.496
+offset_bottom = 238.672
 texture = ExtResource("5_85lo6")
 stretch_mode = 4
 
@@ -501,39 +526,39 @@ anchor_left = 0.839
 anchor_top = 0.602
 anchor_right = 0.839
 anchor_bottom = 0.602
-offset_left = -54.528
-offset_top = 9.90399
-offset_right = 95.472
-offset_bottom = 159.904
+offset_left = -139.528
+offset_top = -149.096
+offset_right = 266.472
+offset_bottom = 228.904
 texture = ExtResource("4_b5ou5")
 stretch_mode = 4
 
 [node name="tekst1" type="Label" parent="."]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 50.0
-offset_right = 1015.0
-offset_bottom = 151.0
+offset_left = 1168.0
+offset_top = 96.0
+offset_right = 2112.0
+offset_bottom = 197.0
 text = "4 masters of martial arts
 the most powerful warriors known to mankind"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 50.0
-offset_right = 3025.0
-offset_bottom = 151.0
+offset_left = 1261.0
+offset_top = 431.0
+offset_right = 4210.0
+offset_bottom = 532.0
 text = "The mad wizard Jarkko got scared
 and turned the masters into little babies"
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="tekst3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 37.0
-offset_right = 929.0
-offset_bottom = 242.0
+offset_left = 1178.0
+offset_top = 50.0
+offset_right = 2063.0
+offset_bottom = 255.0
 text = "Being discontent with their young selves,
 the four masters of kung fu, karate,
 taekwondo and jiu-jitsu set out to face the wizard,
@@ -541,6 +566,7 @@ in hopes of returning to their former selves."
 label_settings = SubResource("LabelSettings_f8np6")
 
 [node name="next" type="Button" parent="."]
+visibility_layer = 0
 texture_filter = 1
 layout_mode = 0
 offset_left = 462.0
@@ -554,4 +580,14 @@ expand_icon = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_qjoy0")
 
+[node name="skip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1076.0
+offset_right = 1151.0
+offset_bottom = 40.0
+icon = ExtResource("10_bbn4b")
+flat = true
+expand_icon = true
+
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]
