@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0h81wv2ci5d8"]
+
+[ext_resource type="Script" path="res://Scenes/tutorial.gd" id="1_fl2ls"]
+[ext_resource type="Texture2D" uid="uid://bdxt8a1hshe26" path="res://Assets/background/intro_taust.png" id="2_dai34"]
+[ext_resource type="Texture2D" uid="uid://b1e75pik4rppg" path="res://Assets/background/ristkulik2.png" id="3_pjoqx"]
+[ext_resource type="FontFile" uid="uid://brhjjdthqwf86" path="res://Assets/fonts/minicode-8x16.otf" id="4_jfx13"]
+[ext_resource type="Texture2D" uid="uid://dncitpf5wnw5" path="res://Assets/Buttons/Back/B_Back1.png" id="5_n3nbw"]
+[ext_resource type="AudioStream" uid="uid://c72a284mgvnst" path="res://Music/Tutorial (loopable).mp3" id="6_fr0nl"]
+[ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="6_rfba3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4geny"]
+font = ExtResource("4_jfx13")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0.835294, 0.729412, 0.588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_awt4o"]
+font = ExtResource("4_jfx13")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fl2ls")
+
+[node name="tagataust" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dai34")
+
+[node name="ristkulik" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 32.0
+offset_right = -52.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pjoqx")
+expand_mode = 1
+
+[node name="pealkiri" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 102.0
+offset_top = 74.0
+offset_right = 369.0
+offset_bottom = 148.0
+text = "TUTORIAL"
+label_settings = SubResource("LabelSettings_4geny")
+
+[node name="tekst" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 121.0
+offset_top = 188.0
+offset_right = 920.0
+offset_bottom = 518.0
+text = "- choose your fighter
+- press keys shown on screen to fight the wizard
+- use points to upgrade your skills
+
+
+
+
+don't be sad if you can't win on the first try,
+upgrade and try again :)
+"
+label_settings = SubResource("LabelSettings_awt4o")
+
+[node name="back" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 891.0
+offset_top = 73.0
+offset_right = 1060.0
+offset_bottom = 140.0
+icon = ExtResource("5_n3nbw")
+flat = true
+expand_icon = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rfba3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fr0nl")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://br1ii77u6qe7k"]
+[gd_scene load_steps=18 format=3 uid="uid://br1ii77u6qe7k"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
 [ext_resource type="Texture2D" uid="uid://b8g2lhcospyd5" path="res://Assets/background/tite_armee.png" id="2_4233a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dx7qdxey4lc1s" path="res://Assets/Buttons/Settings/B_Settings1.png" id="4_w71k2"]
 [ext_resource type="Texture2D" uid="uid://daa45errg31s0" path="res://Assets/Buttons/Quit/B_Quit1.png" id="5_uttj2"]
 [ext_resource type="Texture2D" uid="uid://bvs1hifjf4gg6" path="res://Assets/Buttons/A Buttons Big3.png" id="6_7ih2g"]
+[ext_resource type="Texture2D" uid="uid://b6d0252wba33d" path="res://Assets/Buttons/Info/B_Info1.png" id="6_mfjsr"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="7_i6cuf"]
 [ext_resource type="Texture2D" uid="uid://kndhaxsdvksa" path="res://Assets/Buttons/Exit/A_Exit3.png" id="8_2tvks"]
 [ext_resource type="Texture2D" uid="uid://b2g78ksxjfxt8" path="res://Assets/Buttons/C Buttons Small1.png" id="9_nl3ih"]
@@ -76,7 +77,7 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.54174, 2.17809)
-theme_override_constants/separation = 40
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="start" type="Button" parent="Container"]
@@ -96,8 +97,18 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.2
+size_flags_stretch_ratio = 1.41
 icon = ExtResource("4_w71k2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="tutorial" type="Button" parent="Container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.43
+icon = ExtResource("6_mfjsr")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -212,6 +223,7 @@ wait_time = 10.0
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Container/tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Container/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="Panel/Control/HSlider" to="Panel" method="_on_h_slider_value_changed"]
