@@ -20,7 +20,7 @@ var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
 var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
 var valikud={"jijitsuBeebi":"res://Assets/Beebid/es.png","KungFuBeebi":"res://Assets/Beebid/ko.png","TaekWonDooBeebi":"res://Assets/Beebid/ne.png",
 "KarateBeebi":"res://Assets/Beebid/te.png"}
-var animbeebi={"jijitsuBeebi":"jiujitsu_dance", "KungFuBeebi": "kungufu_dance", "TaekWonDooBeebi": "taekwondo_dance","KarateBeebi":"karate_dance"}
+var animbeebi={"jijitsuBeebi":["jiujitsu_dance", "jiujitsu_idle"], "KungFuBeebi": ["kungufu_dance","kungfu_idle"], "TaekWonDooBeebi": ["taekwondo_dance", "taekwondo_idle"],"KarateBeebi":["karate_dance", "karate_idle"]}
 var fades_factory
 var explosions_factory
 @onready var score: Label = $Score
@@ -102,7 +102,8 @@ func _ready() -> void:
 	havita_vahe=sqrt(Globals.Strength)*2
 	regen=Globals.Get_Regen()
 	main_soundtrack.finished.connect(voit)
-	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi]
+	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi][1]
+	animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 	Globals.On_Hp0.connect(kaotus)
 	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
 	set_process_input(true)
@@ -304,14 +305,14 @@ func combo_checker():
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
-			animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi])
+			animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][0])
 		else:
 			bombtimer-=get_process_delta_time()
 		combo_effect.visible=true
 		
 	if(current_combo<4):
 		bombtimer=0
-		animated_sprite_2d.stop()
+		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
 	anim_speed = current_combo / 5
