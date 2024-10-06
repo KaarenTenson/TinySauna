@@ -7,8 +7,8 @@ var Skill_Points=3
 signal On_Babychanged
 var ChosenBeebi="TaekWonDooBeebi":
 	set(value):
-		On_Babychanged.emit(value)
 		ChosenBeebi=value
+		On_Babychanged.emit(value)
 var Score=0
 var Score_Multiplier=1
 var Enemy_Hp=100
