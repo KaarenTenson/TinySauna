@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=29 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
 [ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="8_n1iy3"]
 [ext_resource type="Script" path="res://volur.gd" id="9_id2nm"]
-[ext_resource type="PackedScene" uid="uid://cei7lg1yyrf55" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
+[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
@@ -49,6 +49,12 @@ tracks/0/keys = {
 _data = {
 "hype": SubResource("Animation_blqmx")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_i4glw"]
+font_names = PackedStringArray("Vladimir Script")
+
+[sub_resource type="SystemFont" id="SystemFont_2kd0a"]
+font_names = PackedStringArray("Vladimir Script")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dhsx3"]
 streams_count = 10
@@ -189,14 +195,22 @@ frame_progress = 0.837828
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_i4glw")
+theme_override_font_sizes/font_size = 50
 
 [node name="MultiPlier" type="Label" parent="."]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 40.0
 offset_bottom = 82.0
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_2kd0a")
+theme_override_font_sizes/font_size = 50
 
 [node name="Hold_Keys_Controller" parent="." instance=ExtResource("9_qvmqw")]
 visible = false
