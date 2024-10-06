@@ -49,6 +49,7 @@ var tee_vahe=2
 #jalgib, kas saab teha popupe või hävitada neid
 var timer_havita=0
 var timer_tee=0
+var previous_key=""
 
 var holdtimer=30
 var hold_time=false
@@ -144,7 +145,10 @@ func _process(delta: float) -> void:
 	if(holdtimer<0):
 		if(holdtimer<(-(havita_vahe+1))):
 			for i in range(2):
-				var tempobj=(teepopup(mangiv.pop_back()))
+				var key=mangiv.pop_back()
+				while key==previous_key:
+					key=mangiv.pop_back()
+				var tempobj=(teepopup(key))
 				visible_keys.append(tempobj)
 			hold_time=true
 		return

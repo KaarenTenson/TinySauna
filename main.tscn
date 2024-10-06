@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c6e8ylh7m6dfb"]
+[gd_scene load_steps=26 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3dtn345kwk0s" path="res://Assets/health_meter_under.png" id="6_ghnpt"]
 [ext_resource type="Texture2D" uid="uid://bueg1tkaehyx7" path="res://Assets/health_meter_progress.png" id="7_3ponr"]
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
-[ext_resource type="PackedScene" uid="uid://cei7lg1yyrf55" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
+[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://euoiyupt4d5h" path="res://SFX/boom/boom10.wav" id="16_dpvpi"]
 [ext_resource type="AudioStream" uid="uid://dtyqlrd6mf4cq" path="res://SFX/boom/boom11.wav" id="17_e1tym"]
 [ext_resource type="AudioStream" uid="uid://brei7ljp68ajs" path="res://SFX/boom/boom13.wav" id="18_a5gtp"]
-[ext_resource type="PackedScene" uid="uid://8v5w8u8h1yu6" path="res://Scenes/pause.tscn" id="19_by70b"]
+[ext_resource type="PackedScene" path="res://Scenes/pause.tscn" id="19_by70b"]
 [ext_resource type="AudioStream" uid="uid://c7kraxunm0sel" path="res://SFX/boom/boom15.wav" id="19_lfwsb"]
 [ext_resource type="AudioStream" uid="uid://bdr75r5ce17gy" path="res://Music/Baby Dance.mp3" id="20_g0k6x"]
 
