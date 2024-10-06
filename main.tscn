@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=28 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://3dtn345kwk0s" path="res://Assets/health_meter_under.png" id="6_ghnpt"]
 [ext_resource type="Texture2D" uid="uid://bueg1tkaehyx7" path="res://Assets/health_meter_progress.png" id="7_3ponr"]
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
-[ext_resource type="Texture2D" uid="uid://b30d8f3xfijh7" path="res://Assets/volur.png" id="8_n42kh"]
+[ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="8_n1iy3"]
+[ext_resource type="Script" path="res://volur.gd" id="9_id2nm"]
 [ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
@@ -48,42 +49,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmoji"]
 _data = {
 "hype": SubResource("Animation_blqmx")
-}
-
-[sub_resource type="Animation" id="Animation_8l3nv"]
-resource_name = "look"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(136, 391), Vector2(136, 300), Vector2(136, 391)]
-}
-
-[sub_resource type="Animation" id="Animation_dgcwt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(136, 391)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_152tl"]
-_data = {
-"RESET": SubResource("Animation_dgcwt"),
-"look": SubResource("Animation_8l3nv")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dhsx3"]
@@ -197,16 +162,14 @@ texture_under = ExtResource("6_ghnpt")
 texture_over = ExtResource("7_lpv3m")
 texture_progress = ExtResource("7_3ponr")
 
-[node name="BeebiTexture" type="TextureRect" parent="Control/Beebi"]
-texture_filter = 1
+[node name="Control" type="Control" parent="Control/Beebi"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Beebi"]
-libraries = {
-"": SubResource("AnimationLibrary_152tl")
-}
+[node name="AnimatedSprite2D" parent="Control/Beebi/Control" instance=ExtResource("8_n1iy3")]
+position = Vector2(89.5, 61.5)
+scale = Vector2(2.41016, 2.23593)
+frame_progress = 0.853679
 
 [node name="volur" type="Control" parent="."]
 anchors_preset = 0
@@ -214,12 +177,11 @@ offset_left = 880.0
 offset_top = 114.0
 offset_right = 920.0
 offset_bottom = 154.0
+script = ExtResource("9_id2nm")
 
-[node name="Sprite2D" type="Sprite2D" parent="volur"]
-texture_filter = 1
-position = Vector2(104, 205)
-scale = Vector2(6.46875, 6.46875)
-texture = ExtResource("8_n42kh")
+[node name="AnimatedSprite2D" parent="volur" instance=ExtResource("8_n1iy3")]
+position = Vector2(64, 210)
+scale = Vector2(5.6875, 5.6875)
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0

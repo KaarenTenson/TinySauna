@@ -20,6 +20,7 @@ var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
 var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
 var valikud={"jijitsuBeebi":"res://Assets/Beebid/es.png","KungFuBeebi":"res://Assets/Beebid/ko.png","TaekWonDooBeebi":"res://Assets/Beebid/ne.png",
 "KarateBeebi":"res://Assets/Beebid/te.png"}
+var animbeebi={"jijitsuBeebi":"jiujitsu_dance", "KungFuBeebi": "kungufu_dance", "TaekWonDooBeebi": "taekwondo_dance","KarateBeebi":"karate_dance"}
 var fades_factory
 var explosions_factory
 @onready var score: Label = $Score
@@ -29,13 +30,13 @@ var explosions_factory
 @onready var boom_sound = $Random_Boom
 @onready var music = $Main_Soundtrack
 @onready var combo_effect: CPUParticles2D = $Mountain/combo_effect
-@onready var beebi_texture: TextureRect = $Control/Beebi/BeebiTexture
 @onready var beebi: VBoxContainer = $Control/Beebi
 @onready var volur: Control = $volur
 @onready var main_soundtrack: AudioStreamPlayer2D = $Main_Soundtrack
 
 
-@onready var animation_player: AnimationPlayer = $Control/Beebi/AnimationPlayer
+@onready var animated_sprite_2d: AnimatedSprite2D = $Control/Beebi/Control/AnimatedSprite2D
+
 
 
 
@@ -63,7 +64,7 @@ var timer_tee=0
 var previous_key=""
 
 var bombtimer=0
-var bomb_vahe=5
+var bomb_vahe=10
 
 var holdtimer=30
 var hold_time=false
@@ -96,7 +97,7 @@ func bomb():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_soundtrack.finished.connect(voit)
-	beebi_texture.texture=load(valikud[Globals.ChosenBeebi])
+	animated_sprite_2d.animation=animbeebi[Globals.ChosenBeebi]
 	Globals.On_Hp0.connect(kaotus)
 	Globals.On_HpChanged.connect(func(value): texture_progress_bar.value=value)
 	set_process_input(true)
@@ -129,13 +130,13 @@ func _input(event):
 						#klahv on olemas, suurendab skoori ja selle multiplierit
 						Globals.Add_Score()
 						Globals.Inc_Multiplier()
-						animation_player.play("look")
 						# havitab vajutatud klahvi masiivist 
 						visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
 						var tempobj=(teepopup(mangiv.pop_back()))
 						visible_keys.append(tempobj)
 						timer_tee = tee_vahe
 						boom_sound.play()
+						
 						break
 					#vale klahv on vajutatud
 					if(damage_timer<=0):
@@ -295,12 +296,14 @@ func combo_checker():
 		if(bombtimer<=0):
 			bomb()
 			bombtimer=bomb_vahe
+			animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi])
 		else:
 			bombtimer-=get_process_delta_time()
 		combo_effect.visible=true
 		
 	if(current_combo<4):
 		bombtimer=0
+		animated_sprite_2d.stop()
 		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
 	anim_speed = current_combo / 5
