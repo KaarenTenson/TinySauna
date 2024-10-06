@@ -91,7 +91,7 @@ var timeout_held = false
 
 func kaotus():
 	get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
-func voit(value):
+func voit():
 	get_tree().change_scene_to_file("res://Scenes/end.tscn")
 func bomb():
 	for i in range(2):
