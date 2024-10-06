@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://br1ii77u6qe7k"]
+[gd_scene load_steps=20 format=3 uid="uid://br1ii77u6qe7k"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_72f7w"]
-[ext_resource type="Texture2D" uid="uid://b8g2lhcospyd5" path="res://Assets/background/tite_armee.png" id="2_4233a"]
+[ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_jf2x5"]
 [ext_resource type="Texture2D" uid="uid://c85a5myws0rbu" path="res://Assets/Buttons/Play/B_Play1.png" id="3_8h2l7"]
+[ext_resource type="Texture2D" uid="uid://0fns1cw78jej" path="res://logo.png" id="3_bbmn0"]
 [ext_resource type="Texture2D" uid="uid://dx7qdxey4lc1s" path="res://Assets/Buttons/Settings/B_Settings1.png" id="4_w71k2"]
 [ext_resource type="Texture2D" uid="uid://daa45errg31s0" path="res://Assets/Buttons/Quit/B_Quit1.png" id="5_uttj2"]
 [ext_resource type="Texture2D" uid="uid://bvs1hifjf4gg6" path="res://Assets/Buttons/A Buttons Big3.png" id="6_7ih2g"]
@@ -13,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cxyca64je65bj" path="res://Music/Title (loopable).mp3" id="10_5gtid"]
 [ext_resource type="AudioStream" uid="uid://4shgvhgm5yyq" path="res://SFX/nupuvajutus.mp3" id="10_opjs1"]
 [ext_resource type="Texture2D" uid="uid://dv56weiyd80ir" path="res://Assets/Beebid/volur.png" id="12_wjgpq"]
+[ext_resource type="Texture2D" uid="uid://b167884a7tvv7" path="res://Assets/Beebid/beebid.png" id="15_l26ch"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5i3h"]
 
@@ -43,10 +45,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -25.0
+offset_right = 129.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_4233a")
+texture = ExtResource("2_jf2x5")
 expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -159.0
+offset_top = -62.0
+offset_right = 1121.0
+offset_bottom = 658.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_bbmn0")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -56,10 +71,10 @@ anchor_left = 0.278
 anchor_top = 0.518
 anchor_right = 0.278
 anchor_bottom = 0.518
-offset_left = -217.256
-offset_top = -325.664
-offset_right = 216.744
-offset_bottom = 369.336
+offset_left = -348.256
+offset_top = -27.664
+offset_right = -82.256
+offset_bottom = 398.336
 texture = ExtResource("12_wjgpq")
 flip_h = true
 
@@ -70,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -250.0
-offset_right = 191.0
-offset_bottom = -21.0
+offset_left = 76.0
+offset_top = -242.0
+offset_right = 268.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.54174, 2.17809)
@@ -220,6 +235,15 @@ autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.0
+offset_top = 351.0
+offset_right = 888.0
+offset_bottom = 711.0
+texture = ExtResource("15_l26ch")
 
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Container/settings" to="." method="_on_settings_pressed"]
