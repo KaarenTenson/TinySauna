@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=37 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
+[ext_resource type="AudioStream" uid="uid://bkhcr6257mkjo" path="res://SFX/kungfu_baby.mp3" id="11_nh4j0"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
 [ext_resource type="AudioStream" uid="uid://bg0pg6lnl0ud7" path="res://SFX/boom/boom4.wav" id="13_xe88j"]
 [ext_resource type="AudioStream" uid="uid://dhgra0ccvejqa" path="res://SFX/boom/boom5.wav" id="14_k0q3l"]
@@ -230,6 +231,9 @@ theme_override_font_sizes/font_size = 50
 visible = false
 layout_mode = 1
 script = null
+
+[node name="fail" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_nh4j0")
 
 [node name="Random_Boom" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dhsx3")

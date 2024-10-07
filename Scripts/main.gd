@@ -151,15 +151,18 @@ func _input(event):
 						Globals.Add_Score()
 						Globals.Inc_Multiplier()
 						# havitab vajutatud klahvi masiivist 
-						visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
-						var tempobj=(teepopup(mangiv.pop_back()))
-						visible_keys.append(tempobj)
-						timer_tee = tee_vahe
 						boom_sound.play()
+						visible_keys.pop_at(visible_keys.find(node)).Destroy_Self()
+						if(visible_keys.size()<4):
+							var tempobj=(teepopup(mangiv.pop_back()))
+							visible_keys.append(tempobj)
+						timer_tee = tee_vahe
+						
 						
 						break
 					#vale klahv on vajutatud
 				if(damage_timer<=0 and !kasvõetud):
+					$fail.play()
 					damage_timer = 0.5
 					Globals.Recive_Damage()
 					Globals.Dec_Multiplier()
