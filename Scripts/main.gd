@@ -50,7 +50,7 @@ var explosions_factory
 @onready var hold_keys_controller = $Hold_Keys_Controller
 
 # crowd aanimation speed
-var anim_speed = 0
+var anim_speed = 1
 #ehitatud popupstseen
 var target_key_factory
 #popupid, mis on ekraanil
@@ -127,10 +127,6 @@ func _ready() -> void:
 	explosions_factory=explosions.instantiate()
 	#taidab suvaliste charidega
 	taida(1000)
-	# sets crowd animation speed to 0 and plays it
-	crowd_anim.speed_scale = anim_speed
-	crowd_anim.play("hype")
-	music.play()
 
 func _input(event):
 	# Check if the input is a key event
@@ -162,7 +158,6 @@ func _input(event):
 						break
 					#vale klahv on vajutatud
 				if(damage_timer<=0 and !kasvõetud):
-					$fail.play()
 					damage_timer = 0.5
 					Globals.Recive_Damage()
 					Globals.Dec_Multiplier()
@@ -185,13 +180,15 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(Globals.hp<100):
-		Globals.hp+=(regen*delta)/3
+		Globals.hp+=(regen*delta)
 	else:
 		Globals.hp=100
 	combo_checker()
 	score.text="Score: "+str(Globals.Score)
 	multi_plier.text="multiplier: "+str(snapped(Globals.Score_Multiplier,0.01))
-	#holdi jaoks, suht palju peab veel panema 
+	#holdi jaoks, suht palju peab veel panema
+	await get_tree().create_timer(5.6).timeout
+	$volur/AnimatedSprite2D.play("wizard_dance")
 	if(holdtimer<0):
 		if(holdtimer<(-(havita_vahe+1))):
 			for i in range(2):
@@ -272,7 +269,6 @@ func next_hold_keys():
 
 #teeb popup haitab ennast enda skriptis kui piisavalt aega on möödas
 func teepopup(taht) -> TextureRect:
-	
 	var uus = target_key_factory.duplicate()
 	var vanem = self
 	var random_x = randf_range((vanem.position.x+vanem.size.x*0.2), (vanem.position.x + vanem.size.x)*0.8)  # Adjust range as needed
@@ -354,8 +350,8 @@ func combo_checker():
 		animated_sprite_2d.play(animbeebi[Globals.ChosenBeebi][1])
 		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
-	anim_speed = current_combo / 5
 	if (anim_speed <= 6):
+		anim_speed = current_combo / 5
 		crowd_anim.speed_scale = anim_speed
 
 func _on_1st_switch_timeout():

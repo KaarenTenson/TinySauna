@@ -1,6 +1,7 @@
 extends Node
 var Strength=1
-var Speed=1
+var Speed=5
+var SpeedBar=1
 var Potions=1
 var Skill_Points=3
 

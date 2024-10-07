@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=43 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -9,10 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bx8f3150tnx44" path="res://Assets/health_meter_over.png" id="7_lpv3m"]
 [ext_resource type="PackedScene" uid="uid://c4d2j5qi6roqy" path="res://Scenes/tantsudSprite.tscn" id="8_n1iy3"]
 [ext_resource type="Script" path="res://volur.gd" id="9_id2nm"]
-[ext_resource type="PackedScene" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
+[ext_resource type="PackedScene" uid="uid://cei7lg1yyrf55" path="res://Scenes/hold_keys_controller.tscn" id="9_qvmqw"]
 [ext_resource type="AudioStream" uid="uid://cmwguxh38vnrk" path="res://SFX/boom/boom1.wav" id="10_k3a6s"]
 [ext_resource type="AudioStream" uid="uid://cg0ngw4pi6m4m" path="res://SFX/boom/boom2.wav" id="11_ds11p"]
-[ext_resource type="AudioStream" uid="uid://bkhcr6257mkjo" path="res://SFX/kungfu_baby.mp3" id="11_nh4j0"]
 [ext_resource type="AudioStream" uid="uid://5ygmxtk62ebg" path="res://SFX/boom/boom3.wav" id="12_yt0tp"]
 [ext_resource type="AudioStream" uid="uid://bg0pg6lnl0ud7" path="res://SFX/boom/boom4.wav" id="13_xe88j"]
 [ext_resource type="AudioStream" uid="uid://dhgra0ccvejqa" path="res://SFX/boom/boom5.wav" id="14_k0q3l"]
@@ -23,12 +22,18 @@
 [ext_resource type="PackedScene" uid="uid://dgcaoloy6rr68" path="res://Scenes/pause.tscn" id="19_by70b"]
 [ext_resource type="AudioStream" uid="uid://c7kraxunm0sel" path="res://SFX/boom/boom15.wav" id="19_lfwsb"]
 [ext_resource type="AudioStream" uid="uid://bdr75r5ce17gy" path="res://Music/Baby Dance.mp3" id="20_g0k6x"]
+[ext_resource type="AudioStream" uid="uid://b1vpefd1eodk1" path="res://SFX/combo6.wav" id="23_fmwdc"]
 [ext_resource type="AudioStream" uid="uid://daij085h0pd7l" path="res://SFX/awesome_combo3.mp3" id="23_rlb72"]
 [ext_resource type="AudioStream" uid="uid://wn6pg07udby1" path="res://SFX/combo1.wav" id="24_wevmt"]
 [ext_resource type="AudioStream" uid="uid://cbt74b04jjsgp" path="res://SFX/combo2.wav" id="25_a40te"]
 [ext_resource type="AudioStream" uid="uid://c1q7j5mfrnvcf" path="res://SFX/combo3.wav" id="26_ns6x2"]
 [ext_resource type="AudioStream" uid="uid://mvjy58ruwx1j" path="res://SFX/combo5.wav" id="27_5s5ss"]
 [ext_resource type="Texture2D" uid="uid://q1xu6ntpuhf" path="res://Assets/Combo/wow.png" id="28_nort7"]
+[ext_resource type="AudioStream" uid="uid://bspltx2xbt6ii" path="res://SFX/fantastic_combo4.mp3" id="29_amcdx"]
+[ext_resource type="AudioStream" uid="uid://nm57tj447q3f" path="res://SFX/good_combo1.mp3" id="30_8mdc4"]
+[ext_resource type="AudioStream" uid="uid://dyiluhd8e7crp" path="res://SFX/great_combo2.mp3" id="31_svkyl"]
+[ext_resource type="AudioStream" uid="uid://jg00pjy13cuf" path="res://SFX/incredible_combo5.mp3" id="32_rtgo8"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="34_aibyw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
 blend_mode = 1
@@ -37,7 +42,23 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Animation" id="Animation_3rpdv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -3)]
+}
+
 [sub_resource type="Animation" id="Animation_blqmx"]
+length = 1.3333
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,14 +67,15 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(8, -3), Vector2(0, -3), Vector2(8, -3), Vector2(16, -3)]
+"values": [Vector2(8, -3), Vector2(0, -3), Vector2(8, -3), Vector2(16, -3), Vector2(8, -3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmoji"]
 _data = {
+"RESET": SubResource("Animation_3rpdv"),
 "hype": SubResource("Animation_blqmx")
 }
 
@@ -77,12 +99,17 @@ stream_8/stream = ExtResource("18_a5gtp")
 stream_9/stream = ExtResource("19_lfwsb")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0set8"]
-streams_count = 6
+streams_count = 10
 stream_0/stream = ExtResource("23_rlb72")
+stream_1/stream = ExtResource("23_fmwdc")
 stream_2/stream = ExtResource("24_wevmt")
 stream_3/stream = ExtResource("25_a40te")
 stream_4/stream = ExtResource("26_ns6x2")
 stream_5/stream = ExtResource("27_5s5ss")
+stream_6/stream = ExtResource("29_amcdx")
+stream_7/stream = ExtResource("30_8mdc4")
+stream_8/stream = ExtResource("31_svkyl")
+stream_9/stream = ExtResource("32_rtgo8")
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -127,9 +154,9 @@ anchor_left = 0.468
 anchor_top = 0.333
 anchor_right = 0.473
 anchor_bottom = 0.345
-offset_left = -531.136
+offset_left = -523.136
 offset_top = -218.784
-offset_right = 615.104
+offset_right = 623.104
 offset_bottom = 421.44
 grow_horizontal = 2
 grow_vertical = 2
@@ -158,15 +185,15 @@ grow_vertical = 2
 
 [node name="Beebi" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 2.275
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 2.275
 anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -83.5
-offset_right = 87.5
-offset_bottom = 83.5
+offset_left = -95.0
+offset_top = -113.0
+offset_right = 158.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -187,8 +214,8 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AnimatedSprite2D" parent="Control/Beebi/Control" instance=ExtResource("8_n1iy3")]
-position = Vector2(85.5, 64.5)
-scale = Vector2(2.82129, 2.61734)
+position = Vector2(124, 75)
+scale = Vector2(5.19098, 4.64433)
 animation = &"wizard_dance"
 frame_progress = 0.393677
 
@@ -201,10 +228,8 @@ offset_bottom = 154.0
 script = ExtResource("9_id2nm")
 
 [node name="AnimatedSprite2D" parent="volur" instance=ExtResource("8_n1iy3")]
-position = Vector2(64, 210)
+position = Vector2(22, 214)
 scale = Vector2(5.6875, 5.6875)
-animation = &"wizard_dance"
-frame_progress = 0.837828
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
@@ -232,14 +257,13 @@ visible = false
 layout_mode = 1
 script = null
 
-[node name="fail" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_nh4j0")
-
 [node name="Random_Boom" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dhsx3")
+volume_db = -16.605
 
 [node name="Main_Soundtrack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g0k6x")
+autoplay = true
 
 [node name="ComboStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_0set8")
@@ -297,3 +321,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("28_nort7")
 expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("34_aibyw")
