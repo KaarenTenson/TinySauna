@@ -6,7 +6,7 @@ var Potions=1
 var Skill_Points=3
 
 signal On_Babychanged
-var ChosenBeebi="TaekWonDooBeebi":
+var ChosenBeebi="KungFuBeebi":
 	set(value):
 		ChosenBeebi=value
 		On_Babychanged.emit(value)

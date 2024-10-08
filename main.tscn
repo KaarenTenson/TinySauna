@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5q2ob7xtq7pj"]
+[gd_scene load_steps=47 format=3 uid="uid://b5q2ob7xtq7pj"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_7aqi6"]
 [ext_resource type="Texture2D" uid="uid://cje217083p5lf" path="res://Assets/background/mountain.png" id="2_w3qif"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://dyiluhd8e7crp" path="res://SFX/great_combo2.mp3" id="31_svkyl"]
 [ext_resource type="AudioStream" uid="uid://jg00pjy13cuf" path="res://SFX/incredible_combo5.mp3" id="32_rtgo8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="34_aibyw"]
+[ext_resource type="Texture2D" uid="uid://cr1ct4vvp2bbq" path="res://Assets/Get ready.png" id="35_1ujaq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7cf33"]
 blend_mode = 1
@@ -79,12 +80,6 @@ _data = {
 "hype": SubResource("Animation_blqmx")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_i4glw"]
-font_names = PackedStringArray("Vladimir Script")
-
-[sub_resource type="SystemFont" id="SystemFont_2kd0a"]
-font_names = PackedStringArray("Vladimir Script")
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dhsx3"]
 streams_count = 10
 stream_0/stream = ExtResource("10_k3a6s")
@@ -110,6 +105,85 @@ stream_6/stream = ExtResource("29_amcdx")
 stream_7/stream = ExtResource("30_8mdc4")
 stream_8/stream = ExtResource("31_svkyl")
 stream_9/stream = ExtResource("32_rtgo8")
+
+[sub_resource type="SystemFont" id="SystemFont_i4glw"]
+font_names = PackedStringArray("Vladimir Script")
+
+[sub_resource type="SystemFont" id="SystemFont_2kd0a"]
+font_names = PackedStringArray("Vladimir Script")
+
+[sub_resource type="Animation" id="Animation_1fut2"]
+resource_name = "popup"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.36667, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.13522, 0.13522), Vector2(0.845126, 0.845126), Vector2(0.845126, 0.845126), Vector2(4.27418, 4.27417)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.766667, 1.33333, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v5j6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.13522, 0.13522)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0oum"]
+_data = {
+"RESET": SubResource("Animation_v5j6k"),
+"popup": SubResource("Animation_1fut2")
+}
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -156,11 +230,11 @@ anchor_right = 0.473
 anchor_bottom = 0.345
 offset_left = -523.136
 offset_top = -218.784
-offset_right = 623.104
-offset_bottom = 421.44
+offset_right = 613.104
+offset_bottom = 416.44
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.00698132
+rotation = -6.28319
 texture = ExtResource("3_i0gv5")
 expand_mode = 1
 
@@ -230,27 +304,6 @@ script = ExtResource("9_id2nm")
 [node name="AnimatedSprite2D" parent="volur" instance=ExtResource("8_n1iy3")]
 position = Vector2(22, 214)
 scale = Vector2(5.6875, 5.6875)
-
-[node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_i4glw")
-theme_override_font_sizes/font_size = 50
-
-[node name="MultiPlier" type="Label" parent="."]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 82.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_2kd0a")
-theme_override_font_sizes/font_size = 50
 
 [node name="Hold_Keys_Controller" parent="." instance=ExtResource("9_qvmqw")]
 visible = false
@@ -324,4 +377,39 @@ expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+zoom = Vector2(3.5, 3.5)
 script = ExtResource("34_aibyw")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 58.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_i4glw")
+theme_override_font_sizes/font_size = 50
+
+[node name="MultiPlier" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 40.0
+offset_right = 58.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_2kd0a")
+theme_override_font_sizes/font_size = 50
+
+[node name="GetReady" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(583, 333)
+scale = Vector2(0.13522, 0.13522)
+texture = ExtResource("35_1ujaq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GetReady"]
+libraries = {
+"": SubResource("AnimationLibrary_j0oum")
+}

@@ -100,6 +100,5 @@ stream = ExtResource("6_rfba3")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fr0nl")
 autoplay = true
-parameters/looping = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

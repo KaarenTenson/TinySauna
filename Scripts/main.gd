@@ -20,7 +20,7 @@ var explosions=preload("res://Assets/Particles/particle_effects/explosion.tscn")
 var fades=preload("res://Assets/Particles/particle_effects/fade.tscn")
 var valikud={"jijitsuBeebi":"res://Assets/Beebid/es.png","KungFuBeebi":"res://Assets/Beebid/ko.png","TaekWonDooBeebi":"res://Assets/Beebid/ne.png",
 "KarateBeebi":"res://Assets/Beebid/te.png"}
-var animbeebi={"jijitsuBeebi":["jiujitsu_dance", "jiujitsu_idle"], "KungFuBeebi": ["kungufu_dance","kungfu_idle"], "TaekWonDooBeebi": ["taekwondo_dance", "taekwondo_idle"],"KarateBeebi":["karate_dance", "karate_idle"]}
+var animbeebi={"jijitsuBeebi":["jiujitsu_dance", "jiujitsu_idle"], "KungFuBeebi": ["taekwondo_dance","taekwondo_idle"], "TaekWonDooBeebi": ["kungfu_dance", "kungfu_idle"],"KarateBeebi":["karate_dance", "karate_idle"]}
 var fades_factory
 var explosions_factory
 @onready var score: Label = $Score
@@ -127,6 +127,10 @@ func _ready() -> void:
 	explosions_factory=explosions.instantiate()
 	#taidab suvaliste charidega
 	taida(1000)
+	crowd_anim.speed_scale = anim_speed
+	crowd_anim.play("hype")
+	await get_tree().create_timer(3.5).timeout
+	$GetReady/AnimationPlayer.play("popup")
 
 func _input(event):
 	# Check if the input is a key event
@@ -179,6 +183,7 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if(Globals.hp<100):
 		Globals.hp+=(regen*delta)
 	else:
@@ -351,8 +356,8 @@ func combo_checker():
 		combo_effect.color=Color.PURPLE
 		combo_effect.visible=false
 	if (anim_speed <= 6):
-		anim_speed = current_combo / 5
-		crowd_anim.speed_scale = anim_speed
+		crowd_anim.speed_scale = anim_speed + (current_combo / 5)
+		crowd_anim.play("hype")
 
 func _on_1st_switch_timeout():
 	print("First Timeout")
