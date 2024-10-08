@@ -24,8 +24,8 @@ func _process(delta: float) -> void:
 		zoom_time += delta * zoom_speed
 		var zoom_factor = sin(zoom_time) * zoom_strength
 		var new_zoom = base_zoom + Vector2(zoom_factor, zoom_factor)
-		new_zoom.x = clamp(new_zoom.x, 1, 1.15)
-		new_zoom.y = clamp(new_zoom.y, 1, 1.15)
+		new_zoom.x = clamp(new_zoom.x, 1, 1.1)
+		new_zoom.y = clamp(new_zoom.y, 1, 1.1)
 		zoom = new_zoom
 	else:
 		cutscene_timer += delta

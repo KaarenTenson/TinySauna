@@ -112,6 +112,33 @@ font_names = PackedStringArray("Vladimir Script")
 [sub_resource type="SystemFont" id="SystemFont_2kd0a"]
 font_names = PackedStringArray("Vladimir Script")
 
+[sub_resource type="Animation" id="Animation_v5j6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.13522, 0.13522)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1fut2"]
 resource_name = "popup"
 length = 2.0
@@ -150,33 +177,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_v5j6k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.13522, 0.13522)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j0oum"]
@@ -312,10 +312,11 @@ script = null
 
 [node name="Random_Boom" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_dhsx3")
-volume_db = -16.605
+volume_db = -8.645
 
 [node name="Main_Soundtrack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g0k6x")
+volume_db = 7.519
 autoplay = true
 
 [node name="ComboStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
